@@ -1,0 +1,6 @@
+../Core/Src/freertos.c:85:6:vApplicationGetIdleTaskMemory	1
+../Core/Src/freertos.c:99:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:163:6:StartDefaultTask	1
+../Core/Src/freertos.c:181:6:tache1_fonction	1
+../Core/Src/freertos.c:206:6:tache2_fonction	1
+../Core/Src/freertos.c:230:6:Display_fonction	3
