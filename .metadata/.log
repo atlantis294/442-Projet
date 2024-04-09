@@ -136,3 +136,18 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.cdt.managedbuilder.co
 !MESSAGE OK
 !SUBENTRY 1 org.eclipse.core.resources 4 77 2024-04-09 10:26:49.095
 !MESSAGE C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet overlaps the location of another project: 'Projet'
+!SESSION 2024-04-09 11:07:28.131 -----------------------------------------------
+eclipse.buildId=Version 1.15.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-09 11:07:48.323
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-09 11:07:48.329
+!MESSAGE Log4j2 initialized with config file C:\Users\jfarn\Documents\ENS\M1\442\Projet\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-09 11:08:10.746
+!MESSAGE Started RMI Server, listening on port 41337

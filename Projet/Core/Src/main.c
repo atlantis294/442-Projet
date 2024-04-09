@@ -142,26 +142,26 @@ int main(void)
   BSP_LCD_SetBackColor(00);
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 
-  char image[140];
+	char image[140];
 	FIL file;
-	uwInternelBuffer = (uint8_t*) 0xC0260000;
-  unsigned int byteRead;
-	TCHAR pathfile[]="mapENS.bmp";
-  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+	uint8_t *uwInternelBuffer = (uint8_t*) 0xC0260000;
+	unsigned int byteRead;
+	TCHAR pathfile[] = "mapENS.bmp";
+	f_open(&file, pathfile, FA_READ); // on ne prend que le fichier
 	f_read(&file, (TCHAR*) image, 138, &byteRead);
 	f_close(&file);
 
-  //Entete début
+	//Entete début
 	//Largeur
-	image[18]=0xE0;
-	image[19]=0x01;
-	image[20]=0x00;
-	image[21]=0x00;
+	image[18] = 0xE0;
+	image[19] = 0x01;
+	image[20] = 0x00;
+	image[21] = 0x00;
 	//hauteur
-	image[22]=0x10;
-	image[23]=0x01;
-	image[24]=0x00;
-	image[25]=0x00;
+	image[22] = 0x10;
+	image[23] = 0x01;
+	image[24] = 0x00;
+	image[25] = 0x00;
 
 
 
