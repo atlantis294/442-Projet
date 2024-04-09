@@ -5,3 +5,7 @@
 1712650070623	Delete resource 'Projet/Debug'
 1712650075174	Delete resource 'Projet/STM32F746NGHX_FLASH.ld'
 1712651263746	Delete resource 'Projet/Core/Inc/SNA.h'
+1712654855696	Delete resource 'Projet/Core/Inc/rugby_2522306_1920_bmp.h'
+1712655658713	Delete resource 'Projet/Core/Inc/fatfs_storage.c'
+1712656965528	Delete resource 'Projet/Core/Src/fatfs_storage.c'
+1712656968901	Delete resource 'Projet/Core/Inc/fatfs_storage.h'

@@ -61,7 +61,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/dac.h \
+ ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/dac.h ../Core/Inc/dma.h \
  ../Core/Inc/dma2d.h ../FATFS/App/fatfs.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h \
  ../Middlewares/Third_Party/FatFs/src/integer.h ../FATFS/Target/ffconf.h \
@@ -76,7 +76,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/stm32746g_discovery_sdram.h \
  ../Core/Inc/stm32746g_discovery.h ../Core/Inc/../../Fonts/fonts.h \
  ../Core/Inc/stm32746g_discovery_ts.h ../Core/Inc/ft5336.h \
- ../Core/Inc/ts.h
+ ../Core/Inc/ts.h ../Core/Inc/bitmaps.h ../Core/Inc/fatfs_storage.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -143,6 +143,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/adc.h:
 ../Core/Inc/main.h:
 ../Core/Inc/dac.h:
+../Core/Inc/dma.h:
 ../Core/Inc/dma2d.h:
 ../FATFS/App/fatfs.h:
 ../Middlewares/Third_Party/FatFs/src/ff.h:
@@ -171,3 +172,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/stm32746g_discovery_ts.h:
 ../Core/Inc/ft5336.h:
 ../Core/Inc/ts.h:
+../Core/Inc/bitmaps.h:
+../Core/Inc/fatfs_storage.h:

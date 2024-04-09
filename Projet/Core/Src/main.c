@@ -21,6 +21,7 @@
 #include "cmsis_os.h"
 #include "adc.h"
 #include "dac.h"
+#include "dma.h"
 #include "dma2d.h"
 #include "fatfs.h"
 #include "i2c.h"
@@ -38,6 +39,9 @@
 #include "stm32746g_discovery_lcd.h"
 #include "stm32746g_discovery_ts.h"
 #include "stdio.h"
+#include "stdlib.h"
+#include "bitmaps.h"
+#include "fatfs_storage.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,7 +61,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t *uwInternelBuffer;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,7 +112,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC3_Init();
+  MX_DMA_Init();
   MX_DMA2D_Init();
   MX_FMC_Init();
   MX_I2C1_Init();
@@ -127,6 +131,7 @@ int main(void)
   MX_DAC_Init();
   MX_UART7_Init();
   MX_SDMMC1_SD_Init();
+  MX_ADC3_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
   BSP_LCD_Init();
@@ -142,14 +147,23 @@ int main(void)
   BSP_LCD_SetBackColor(00);
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 
-	char image[140];
+  uint8_t fatfs;
+  //pb configuration fatfs
+  fatfs=FATFS_LinkDriver(&SD_Driver, SDPath);
+
+	char image[200]={};
+  char text[50]={};
 	FIL file;
-	uint8_t *uwInternelBuffer = (uint8_t*) 0xC0260000;
+	uwInternelBuffer = (uint8_t*) 0xC0260000;
 	unsigned int byteRead;
 	TCHAR pathfile[] = "mapENS.bmp";
-	f_open(&file, pathfile, FA_READ); // on ne prend que le fichier
-	f_read(&file, (TCHAR*) image, 138, &byteRead);
+    FRESULT res;
+	res=f_open(&file, pathfile, FA_READ); // on ne prend que le fichier
+	f_read(&file, (TCHAR*) image, 200, &byteRead);
 	f_close(&file);
+
+  sprintf(text, "file: %d  fatfs: %d      ",res,fatfs);
+	BSP_LCD_DisplayStringAtLine(8,(uint8_t*) text);
 
 	//Entete début
 	//Largeur

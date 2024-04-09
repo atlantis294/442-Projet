@@ -10,6 +10,7 @@ file.close()
 
 offset=data[10]
 image=data[:offset]
+print(image)
 h=700
 l=1707
 
