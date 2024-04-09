@@ -56,12 +56,8 @@ extern uint8_t caractere_recu;
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osThreadId Tache1Handle;
-osThreadId Tache2Handle;
+osThreadId deplacementHandle;
 osThreadId DisplayHandle;
-osMessageQId QueueTimeHandle;
-osMessageQId QueueSerieHandle;
-osMutexId Mutex_AffichageHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -69,8 +65,7 @@ osMutexId Mutex_AffichageHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-void tache1_fonction(void const * argument);
-void tache2_fonction(void const * argument);
+void deplacement_fonction(void const * argument);
 void Display_fonction(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -100,10 +95,6 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
-  /* Create the mutex(es) */
-  /* definition and creation of Mutex_Affichage */
-  osMutexDef(Mutex_Affichage);
-  Mutex_AffichageHandle = osMutexCreate(osMutex(Mutex_Affichage));
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -117,15 +108,6 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
-  /* Create the queue(s) */
-  /* definition and creation of QueueTime */
-  osMessageQDef(QueueTime, 10, RTC_TimeTypeDef);
-  QueueTimeHandle = osMessageCreate(osMessageQ(QueueTime), NULL);
-
-  /* definition and creation of QueueSerie */
-  osMessageQDef(QueueSerie, 4, uint8_t);
-  QueueSerieHandle = osMessageCreate(osMessageQ(QueueSerie), NULL);
-
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -135,13 +117,9 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of Tache1 */
-  osThreadDef(Tache1, tache1_fonction, osPriorityLow, 0, 1024);
-  Tache1Handle = osThreadCreate(osThread(Tache1), NULL);
-
-  /* definition and creation of Tache2 */
-  osThreadDef(Tache2, tache2_fonction, osPriorityHigh, 0, 1024);
-  Tache2Handle = osThreadCreate(osThread(Tache2), NULL);
+  /* definition and creation of deplacement */
+  osThreadDef(deplacement, deplacement_fonction, osPriorityHigh, 0, 1024);
+  deplacementHandle = osThreadCreate(osThread(deplacement), NULL);
 
   /* definition and creation of Display */
   osThreadDef(Display, Display_fonction, osPriorityNormal, 0, 1024);
@@ -171,53 +149,42 @@ void StartDefaultTask(void const * argument)
   /* USER CODE END StartDefaultTask */
 }
 
-/* USER CODE BEGIN Header_tache1_fonction */
+/* USER CODE BEGIN Header_deplacement_fonction */
 /**
-* @brief Function implementing the Tache1 thread.
+* @brief Function implementing the deplacement thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_tache1_fonction */
-void tache1_fonction(void const * argument)
+/* USER CODE END Header_deplacement_fonction */
+void deplacement_fonction(void const * argument)
 {
-  /* USER CODE BEGIN tache1_fonction */
-	RTC_TimeTypeDef sTime; // Structure pour stocker l'heure
-	RTC_DateTypeDef sDate;
-	/* Infinite loop */
-	for (;;) {
-
-		HAL_GPIO_WritePin(LED11_GPIO_Port, LED11_Pin, 1);
-		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
-		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-		xQueueSend(QueueTimeHandle, &sTime, 0);
-		HAL_GPIO_WritePin(LED11_GPIO_Port, LED11_Pin, 0);
-		osDelay(50);
-	}
-  /* USER CODE END tache1_fonction */
-}
-
-/* USER CODE BEGIN Header_tache2_fonction */
-/**
-* @brief Function implementing the Tache2 thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_tache2_fonction */
-void tache2_fonction(void const * argument)
-{
-  /* USER CODE BEGIN tache2_fonction */
-	/* Infinite loop */
-	for (;;) {
-		HAL_GPIO_WritePin(LED12_GPIO_Port, LED12_Pin, 1);
-
-		//xQueueSend(QueueSerieHandle, &valLed, 0);
-		//HAL_GPIO_WritePin(LED16_GPIO_Port, LED16_Pin, valLed);
-
-		HAL_GPIO_WritePin(LED12_GPIO_Port, LED12_Pin, 0);
-		osDelay(1000);
-
-	}
-  /* USER CODE END tache2_fonction */
+  /* USER CODE BEGIN deplacement_fonction */
+  TS_StateTypeDef TS_State,TS_State0,TS_State1;
+  uint8_t deplacement=0,dx,dy;
+  char text[50]={};
+  /* Infinite loop */
+  for(;;)
+  {
+    BSP_TS_GetState(&TS_State);
+    if(TS_State.touchDetected){
+      if (deplacement==0){
+		    TS_State0=TS_State;
+        deplacement=1;
+	  	}
+      else{
+        TS_State1=TS_State;
+    	}
+    }
+    else {
+        deplacement=0;
+        dx=TS_State1.touchX[0]-TS_State0.touchX[0];
+        dy=TS_State1.touchY[0]-TS_State0.touchY[0];
+        sprintf(text,"dx %d dy %d",dx,dy);
+        BSP_LCD_DisplayStringAtLine(1, (uint8_t*) text);
+    }
+    osDelay(10);
+  }
+  /* USER CODE END deplacement_fonction */
 }
 
 /* USER CODE BEGIN Header_Display_fonction */
@@ -231,25 +198,10 @@ void Display_fonction(void const * argument)
 {
   /* USER CODE BEGIN Display_fonction */
 	/* Infinite loop */
-	char text[50] = { }, text2[50] = { };
-	uint8_t valLed = 0;
-	RTC_TimeTypeDef sTime; // Structure pour stocker l'heure
-	/* Infinite loop */
 	for (;;) {
-		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 1); ////||(xQueueReceive(QueueSerieHandle, &valLed, 0)))
-		if (xQueueReceive(QueueTimeHandle, &sTime, 0)) {
-			sprintf(text2, "Heure actuelle: %02d:%02d:%02d", sTime.Hours,
-					sTime.Minutes, sTime.Seconds);
-			BSP_LCD_SetTextColor(LCD_COLOR_RED);
-			BSP_LCD_DisplayStringAtLine(3, (uint8_t*) text2);
-
-		}
-		if (xQueueReceive(QueueSerieHandle, &valLed, 0)) {
-			sprintf(text, "LED 16: %d", valLed);
-			BSP_LCD_DisplayStringAtLine(2, (uint8_t*) text);
-		}
+		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 1); 
 		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 0);
-		osDelay(100);
+		osDelay(500);
 	}
   /* USER CODE END Display_fonction */
 }

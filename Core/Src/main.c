@@ -229,6 +229,7 @@ int main(void)
 			BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
 		  BSP_LCD_FillCircle(TS_State.touchX[0],TS_State.touchY[0],4);
 	  	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -327,7 +328,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		HAL_GPIO_WritePin(LED16_GPIO_Port, LED16_Pin, 1);
 	if (caractere_recu == 'e')
 		HAL_GPIO_WritePin(LED16_GPIO_Port, LED16_Pin, 0);
-	xQueueSendFromISR(QueueSerieHandle, &caractere_recu, 0);
 	HAL_UART_Receive_IT(&huart1, &caractere_recu, 1);
 
 }
