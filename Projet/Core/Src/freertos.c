@@ -37,7 +37,12 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef struct
+{
+ 	int16_t dx;
+  int16_t dy;
+}
+mouvement;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -58,6 +63,7 @@ extern uint8_t caractere_recu;
 osThreadId defaultTaskHandle;
 osThreadId deplacementHandle;
 osThreadId DisplayHandle;
+osMessageQId DeplacementQueueHandle;
 osMutexId Mutex_AffichageHandle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,6 +119,11 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* definition and creation of DeplacementQueue */
+  osMessageQDef(DeplacementQueue, 16, mouvement);
+  DeplacementQueueHandle = osMessageCreate(osMessageQ(DeplacementQueue), NULL);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -165,7 +176,8 @@ void deplacement_fonction(void const * argument)
 {
   /* USER CODE BEGIN deplacement_fonction */
   TS_StateTypeDef TS_State;
-  int16_t deplacement=0,dx,dy,x,y,x0,y0;
+  int16_t touch,x,y,x0,y0;
+  mouvement deplacement;
   char text[50]={};
   /* Infinite loop */
   for(;;)
@@ -174,10 +186,10 @@ void deplacement_fonction(void const * argument)
     if(TS_State.touchDetected){
       sprintf(text,"x %d y %d            ",TS_State.touchX[0],TS_State.touchY[0]);
       BSP_LCD_DisplayStringAtLine(4, (uint8_t*) text);
-      if (deplacement==0){
+      if (touch==0){
 		    x0=TS_State.touchX[0];
         y0=TS_State.touchY[0];
-        deplacement=1;
+        touch=1;
 	  	}
       else{
         x=TS_State.touchX[0];
@@ -185,15 +197,16 @@ void deplacement_fonction(void const * argument)
     	}
     }
     else {
-        deplacement=0;
-        dx=x0-x;
-        dy=y0-y;
-        sprintf(text,"dx %d dy %d            ",dx,dy);
+        touch=0;
+        deplacement.dx=x0-x;
+        deplacement.dy=y0-y;
+        sprintf(text,"dx %d dy %d            ",deplacement.dx,deplacement.dy);
         BSP_LCD_DisplayStringAtLine(1, (uint8_t*) text);
         sprintf(text,"f: x %d y %d            ",x,y);
         BSP_LCD_DisplayStringAtLine(2, (uint8_t*) text);
         sprintf(text,"d: x %d y %d            ",x0,y0);
         BSP_LCD_DisplayStringAtLine(3, (uint8_t*) text);
+        xQueueSend(DeplacementQueueHandle, &deplacement, 0);
     }
     osDelay(50);
   }
@@ -210,18 +223,76 @@ void deplacement_fonction(void const * argument)
 void Display_fonction(void const * argument)
 {
   /* USER CODE BEGIN Display_fonction */
+  mouvement deplacement;
+  char image[32778];
+  int16_t x=0,y=0;
+  FabriquerEntete(image);
 	/* Infinite loop */
 	for (;;) {
-		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 1);
-		osDelay(500);
-		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 0);
-		osDelay(500);
+    if (xQueueReceive(DeplacementQueueHandle, &deplacement, 0)) {
+      HAL_GPIO_TogglePin(LED13_GPIO_Port, LED13_Pin);
+      x+=deplacement.dx;
+      y+=deplacement.dy;
+      if (x<0) x=0;
+      if (x>227) x=1227;//1707-480
+      if (y<0) y=0;
+      if (y>428) y=428;//700-272
+      RemplirImage(x,y,image);
+      BSP_LCD_DrawBitmap(0, 0, (uint8_t*) image);
+    }
+		osDelay(100);
 	}
   /* USER CODE END Display_fonction */
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+
+void RemplirImage(uint16_t x, uint16_t y, char* image){
+  int16_t largeur=480,hauteur=272,h=700,l=1707,offset=138;
+  uint16_t i,j,k,index=138;
+  FIL file;
+  uint8_t* uwInternelBuffer;
+	uwInternelBuffer = (uint8_t*) 0xC0260000;
+  unsigned int byteRead;
+	TCHAR pathfile[]="mapENS.bmp";
+  char data[480];
+
+  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+  for(i=0;i<largeur;i++){//Chaque ligne
+    k=offset+2*(j*(l+1)+x);
+    f_lseek(&file,offset+2*(j*(l+1)+x));
+    f_read(&file, (TCHAR*) data, 480, &byteRead);
+    for(j=0;j<hauteur;j++){
+      image[index]=data[j];
+      index++;      
+    }
+  }
+	f_close(&file);
+}
+
+void FabriquerEntete(char* image){
+  char entete[138];
+  FIL file;
+  uint8_t* uwInternelBuffer;
+  uwInternelBuffer = (uint8_t*) 0xC0260000;
+  unsigned int byteRead;
+  TCHAR pathfile[]="mapENS.bmp";
+  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+  f_read(&file, (TCHAR*) entete, 138, &byteRead);
+  for(int i=0;i<138;i++){
+    image[i]=entete[i];
+  }
+  image[18]=0xE0
+  image[19]=0x01
+  image[20]=0x00
+  image[21]=0x00
+  image[22]=0x10
+  image[23]=0x01
+  image[24]=0x00
+  image[25]=0x00
+  f_close(&file);
+}
 
 /* USER CODE END Application */
 

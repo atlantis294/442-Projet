@@ -85,6 +85,7 @@ uint8_t caractere_recu;
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 	//ADC_ChannelConfTypeDef sConfig = {0};
 	sConfig.Rank = ADC_REGULAR_RANK_1;
@@ -185,13 +186,14 @@ int main(void)
   //HAL_RTC_GetDate()
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in freertos.c) */
+  /* Call init function for freertos objects (in cmsis_os2.c) */
   MX_FREERTOS_Init();
 
   /* Start scheduler */
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)

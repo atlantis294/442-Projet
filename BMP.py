@@ -25,7 +25,7 @@ l=1707
 image = bytearray(image)  # Convertir en bytearray pour pouvoir modifier les octets
 image[18:22] = bytearray([0xE0, 0x01, 0x00, 0x00])  # Modifier les octets de l'en-tête
 image[22:26] = bytearray([0x10, 0x01, 0x00, 0x00])
-index=137
+index=138
 for j in range(y,y+hauteur):
     k=offset+2*(j*(l+1)+x)
     for i in range(2*largeur):
