@@ -1,4 +1,4 @@
-# Projet de 422 : Carte embarquée
+# Projet de 442 : Carte embarquée
 ## Objectif : 
 Mettre en place un système permettant de faire bouger une carte sur l'écran d'un STM32.
 
