@@ -223,23 +223,23 @@ void deplacement_fonction(void const * argument)
 void Display_fonction(void const * argument)
 {
   /* USER CODE BEGIN Display_fonction */
-  mouvement deplacement;
-  char image[32778];
-  int16_t x=0,y=0;
-  FabriquerEntete(image);
+  // mouvement deplacement;
+  // char image[32778];
+  // int16_t x=0,y=0;
+  // FabriquerEntete(image);
 	/* Infinite loop */
 	for (;;) {
-    if (xQueueReceive(DeplacementQueueHandle, &deplacement, 0)) {
-      HAL_GPIO_TogglePin(LED13_GPIO_Port, LED13_Pin);
-      x+=deplacement.dx;
-      y+=deplacement.dy;
-      if (x<0) x=0;
-      if (x>227) x=1227;//1707-480
-      if (y<0) y=0;
-      if (y>428) y=428;//700-272
-      RemplirImage(x,y,image);
-      BSP_LCD_DrawBitmap(0, 0, (uint8_t*) image);
-    }
+    // if (xQueueReceive(DeplacementQueueHandle, &deplacement, 0)) {
+    //   HAL_GPIO_TogglePin(LED13_GPIO_Port, LED13_Pin);
+    //   x+=deplacement.dx;
+    //   y+=deplacement.dy;
+    //   if (x<0) x=0;
+    //   if (x>227) x=1227;//1707-480
+    //   if (y<0) y=0;
+    //   if (y>428) y=428;//700-272
+    //   RemplirImage(x,y,image);
+    //   BSP_LCD_DrawBitmap(0, 0, (uint8_t*) image);
+    // }
 		osDelay(100);
 	}
   /* USER CODE END Display_fonction */
@@ -248,51 +248,51 @@ void Display_fonction(void const * argument)
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 
-void RemplirImage(uint16_t x, uint16_t y, char* image){
-  int16_t largeur=480,hauteur=272,h=700,l=1707,offset=138;
-  uint16_t i,j,k,index=138;
-  FIL file;
-  uint8_t* uwInternelBuffer;
-	uwInternelBuffer = (uint8_t*) 0xC0260000;
-  unsigned int byteRead;
-	TCHAR pathfile[]="mapENS.bmp";
-  char data[480];
+// void RemplirImage(uint16_t x, uint16_t y, char* image){
+//   int16_t largeur=480,hauteur=272,h=700,l=1707,offset=138;
+//   uint16_t i,j,k,index=138;
+//   FIL file;
+//   uint8_t* uwInternelBuffer;
+// 	uwInternelBuffer = (uint8_t*) 0xC0260000;
+//   unsigned int byteRead;
+// 	TCHAR pathfile[]="mapENS.bmp";
+//   char data[480];
 
-  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
-  for(i=0;i<largeur;i++){//Chaque ligne
-    k=offset+2*(j*(l+1)+x);
-    f_lseek(&file,offset+2*(j*(l+1)+x));
-    f_read(&file, (TCHAR*) data, 480, &byteRead);
-    for(j=0;j<hauteur;j++){
-      image[index]=data[j];
-      index++;      
-    }
-  }
-	f_close(&file);
-}
+//   f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+//   for(i=0;i<largeur;i++){//Chaque ligne
+//     k=offset+2*(j*(l+1)+x);
+//     f_lseek(&file,offset+2*(j*(l+1)+x));
+//     f_read(&file, (TCHAR*) data, 480, &byteRead);
+//     for(j=0;j<hauteur;j++){
+//       image[index]=data[j];
+//       index++;      
+//     }
+//   }
+// 	f_close(&file);
+// }
 
-void FabriquerEntete(char* image){
-  char entete[138];
-  FIL file;
-  uint8_t* uwInternelBuffer;
-  uwInternelBuffer = (uint8_t*) 0xC0260000;
-  unsigned int byteRead;
-  TCHAR pathfile[]="mapENS.bmp";
-  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
-  f_read(&file, (TCHAR*) entete, 138, &byteRead);
-  for(int i=0;i<138;i++){
-    image[i]=entete[i];
-  }
-  image[18]=0xE0
-  image[19]=0x01
-  image[20]=0x00
-  image[21]=0x00
-  image[22]=0x10
-  image[23]=0x01
-  image[24]=0x00
-  image[25]=0x00
-  f_close(&file);
-}
+// void FabriquerEntete(char* image){
+//   char entete[138];
+//   FIL file;
+//   uint8_t* uwInternelBuffer;
+//   uwInternelBuffer = (uint8_t*) 0xC0260000;
+//   unsigned int byteRead;
+//   TCHAR pathfile[]="mapENS.bmp";
+//   f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+//   f_read(&file, (TCHAR*) entete, 138, &byteRead);
+//   for(int i=0;i<138;i++){
+//     image[i]=entete[i];
+//   }
+//   image[18]=0xE0;
+//   image[19]=0x01;
+//   image[20]=0x00;
+//   image[21]=0x00;
+//   image[22]=0x10;
+//   image[23]=0x01;
+//   image[24]=0x00;
+//   image[25]=0x00;
+//   f_close(&file);
+// }
 
 /* USER CODE END Application */
 
