@@ -58,6 +58,7 @@ extern uint8_t caractere_recu;
 osThreadId defaultTaskHandle;
 osThreadId deplacementHandle;
 osThreadId DisplayHandle;
+osMutexId Mutex_AffichageHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -95,6 +96,10 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
+  /* Create the mutex(es) */
+  /* definition and creation of Mutex_Affichage */
+  osMutexDef(Mutex_Affichage);
+  Mutex_AffichageHandle = osMutexCreate(osMutex(Mutex_Affichage));
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -118,7 +123,7 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of deplacement */
-  osThreadDef(deplacement, deplacement_fonction, osPriorityHigh, 0, 1024);
+  osThreadDef(deplacement, deplacement_fonction, osPriorityRealtime, 0, 1024);
   deplacementHandle = osThreadCreate(osThread(deplacement), NULL);
 
   /* definition and creation of Display */
@@ -159,30 +164,38 @@ void StartDefaultTask(void const * argument)
 void deplacement_fonction(void const * argument)
 {
   /* USER CODE BEGIN deplacement_fonction */
-  TS_StateTypeDef TS_State,TS_State0,TS_State1;
-  uint8_t deplacement=0,dx,dy;
+  TS_StateTypeDef TS_State;
+  int16_t deplacement=0,dx,dy,x,y,x0,y0;
   char text[50]={};
   /* Infinite loop */
   for(;;)
   {
     BSP_TS_GetState(&TS_State);
     if(TS_State.touchDetected){
+      sprintf(text,"x %d y %d            ",TS_State.touchX[0],TS_State.touchY[0]);
+      BSP_LCD_DisplayStringAtLine(4, (uint8_t*) text);
       if (deplacement==0){
-		    TS_State0=TS_State;
+		    x0=TS_State.touchX[0];
+        y0=TS_State.touchY[0];
         deplacement=1;
 	  	}
       else{
-        TS_State1=TS_State;
+        x=TS_State.touchX[0];
+        y=TS_State.touchY[0];
     	}
     }
     else {
         deplacement=0;
-        dx=TS_State1.touchX[0]-TS_State0.touchX[0];
-        dy=TS_State1.touchY[0]-TS_State0.touchY[0];
-        sprintf(text,"dx %d dy %d",dx,dy);
+        dx=x0-x;
+        dy=y0-y;
+        sprintf(text,"dx %d dy %d            ",dx,dy);
         BSP_LCD_DisplayStringAtLine(1, (uint8_t*) text);
+        sprintf(text,"f: x %d y %d            ",x,y);
+        BSP_LCD_DisplayStringAtLine(2, (uint8_t*) text);
+        sprintf(text,"d: x %d y %d            ",x0,y0);
+        BSP_LCD_DisplayStringAtLine(3, (uint8_t*) text);
     }
-    osDelay(10);
+    osDelay(50);
   }
   /* USER CODE END deplacement_fonction */
 }
@@ -199,7 +212,8 @@ void Display_fonction(void const * argument)
   /* USER CODE BEGIN Display_fonction */
 	/* Infinite loop */
 	for (;;) {
-		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 1); 
+		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 1);
+		osDelay(500);
 		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin, 0);
 		osDelay(500);
 	}

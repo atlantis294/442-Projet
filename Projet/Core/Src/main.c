@@ -38,7 +38,6 @@
 #include "stm32746g_discovery_lcd.h"
 #include "stm32746g_discovery_ts.h"
 #include "stdio.h"
-#include "carteENS.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +65,6 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-uint32_t PotarEtLed(uint32_t canal_adc);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -74,7 +72,6 @@ uint32_t PotarEtLed(uint32_t canal_adc);
 
 ADC_ChannelConfTypeDef sConfig = {0};
 uint8_t caractere_recu;
-extern osMessageQId QueueSerieHandle;
 
 /* USER CODE END 0 */
 
@@ -85,11 +82,6 @@ extern osMessageQId QueueSerieHandle;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
-	int etat=0;
-	char text[50]={},text2[50]={};
-	static TS_StateTypeDef  TS_State;
-	uint32_t potl,potr,joystick_h, joystick_v;
 	//ADC_ChannelConfTypeDef sConfig = {0};
 	sConfig.Rank = ADC_REGULAR_RANK_1;
 	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
@@ -143,14 +135,35 @@ int main(void)
   BSP_LCD_DisplayOn();
   BSP_LCD_SelectLayer(0);
   BSP_LCD_Clear(LCD_COLOR_BLACK);
-  BSP_LCD_DrawBitmap(0,0,(uint8_t*)carte1_bmp);
   BSP_LCD_SelectLayer(1);
   BSP_LCD_Clear(00);
   BSP_LCD_SetFont(&Font24);
   BSP_LCD_SetTextColor(LCD_COLOR_RED);
   BSP_LCD_SetBackColor(00);
-
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
+
+  char image[140];
+	FIL file;
+	uwInternelBuffer = (uint8_t*) 0xC0260000;
+  unsigned int byteRead;
+	TCHAR pathfile[]="mapENS.bmp";
+  f_open(&file,pathfile,FA_READ); // on ne prend que le fichier
+	f_read(&file, (TCHAR*) image, 138, &byteRead);
+	f_close(&file);
+
+  //Entete début
+	//Largeur
+	image[18]=0xE0;
+	image[19]=0x01;
+	image[20]=0x00;
+	image[21]=0x00;
+	//hauteur
+	image[22]=0x10;
+	image[23]=0x01;
+	image[24]=0x00;
+	image[25]=0x00;
+
+
 
   uint8_t Test[25]="Fin init\r\n";
   HAL_UART_Transmit(&huart1,Test,sizeof(Test),10);
@@ -176,9 +189,9 @@ int main(void)
 		//HAL_GPIO_WritePin(LED14_GPIO_Port,LED14_Pin,HAL_GPIO_ReadPin(BP2_GPIO_Port,BP2_Pin));
 		//sprintf(text,"BP1 : %d",HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
 		//BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-	  	BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
-	  	sprintf(text,"BP : %d",HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
-	  	BSP_LCD_DisplayStringAtLine(1,(uint8_t*) text);
+//	  	BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
+//	  	sprintf(text,"BP : %d",HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
+//	  	BSP_LCD_DisplayStringAtLine(1,(uint8_t*) text);
 
 	  	// Potar 1
 		//sConfig.Channel = ADC_CHANNEL_6;
@@ -187,49 +200,48 @@ int main(void)
 		//while(HAL_ADC_PollForConversion(&hadc3, 100)!=HAL_OK);
 		//potr = HAL_ADC_GetValue(&hadc3);
 
-
-	  	RTC_DateTypeDef sDate;
-	  	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
-	  	sprintf(text,"Date actuelle: %02d-%02d-%02d", sDate.Year, sDate.Month, sDate.Date);
-	  	BSP_LCD_DisplayStringAtLine(2,(uint8_t*) text);
-
-	  	RTC_TimeTypeDef sTime; // Structure pour stocker l'heure
-		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-		sprintf(text2,"Heure actuelle: %02d:%02d:%02d", sTime.Hours, sTime.Minutes, sTime.Seconds);
-		BSP_LCD_DisplayStringAtLine(3,(uint8_t*) text2);
-
-		HAL_UART_Receive(&huart1,&caractere_recu,1,1);
-		if(caractere_recu=='a') {
-			strcat(text2,"\r\n");
-			HAL_UART_Transmit(&huart1,text2,sizeof(text2),10);
-			caractere_recu=0;
-		}
-
-		sConfig.Channel = ADC_CHANNEL_8;
-		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-		HAL_ADC_Start(&hadc3);
-		while(HAL_ADC_PollForConversion(&hadc3, 100)!=HAL_OK);
-		joystick_v = HAL_ADC_GetValue(&hadc3);
-
-		HAL_ADC_Start(&hadc1);
-		while(HAL_ADC_PollForConversion(&hadc1, 100)!=HAL_OK);
-		joystick_h = HAL_ADC_GetValue(&hadc1);
-
-		BSP_LCD_SetTextColor(LCD_COLOR_RED);
-		sprintf(text,"POTL : %4u joy_v : %4u joy_h : %4u",(uint16_t)potl,(uint16_t)joystick_v,(uint16_t)joystick_h);
-		BSP_LCD_DisplayStringAtLine(9,(uint8_t*) text);
-
-		BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
-		BSP_TS_GetState(&TS_State);
-
-		sprintf(text,"                     ");
-		BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-		if(TS_State.touchDetected){
-			sprintf(text,"   Essai de l'ASPIQUE");
-			BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-		  BSP_LCD_FillCircle(TS_State.touchX[0],TS_State.touchY[0],4);
-	  	  }
-
+//
+//	  	RTC_DateTypeDef sDate;
+//	  	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+//	  	sprintf(text,"Date actuelle: %02d-%02d-%02d", sDate.Year, sDate.Month, sDate.Date);
+//	  	BSP_LCD_DisplayStringAtLine(2,(uint8_t*) text);
+//
+//	  	RTC_TimeTypeDef sTime; // Structure pour stocker l'heure
+//		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+//		sprintf(text2,"Heure actuelle: %02d:%02d:%02d", sTime.Hours, sTime.Minutes, sTime.Seconds);
+//		BSP_LCD_DisplayStringAtLine(3,(uint8_t*) text2);
+//
+//		HAL_UART_Receive(&huart1,&caractere_recu,1,1);
+//		if(caractere_recu=='a') {
+//			strcat(text2,"\r\n");
+//			HAL_UART_Transmit(&huart1,text2,sizeof(text2),10);
+//			caractere_recu=0;
+//		}
+//
+//		sConfig.Channel = ADC_CHANNEL_8;
+//		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+//		HAL_ADC_Start(&hadc3);
+//		while(HAL_ADC_PollForConversion(&hadc3, 100)!=HAL_OK);
+//		joystick_v = HAL_ADC_GetValue(&hadc3);
+//
+//		HAL_ADC_Start(&hadc1);
+//		while(HAL_ADC_PollForConversion(&hadc1, 100)!=HAL_OK);
+//		joystick_h = HAL_ADC_GetValue(&hadc1);
+//
+//		BSP_LCD_SetTextColor(LCD_COLOR_RED);
+//		sprintf(text,"POTL : %4u joy_v : %4u joy_h : %4u",(uint16_t)potl,(uint16_t)joystick_v,(uint16_t)joystick_h);
+//		BSP_LCD_DisplayStringAtLine(9,(uint8_t*) text);
+//
+//		BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+//		BSP_TS_GetState(&TS_State);
+//
+//		sprintf(text,"                     ");
+//		BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
+//		if(TS_State.touchDetected){
+//			sprintf(text,"   Essai de l'ASPIQUE");
+//			BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
+//		  BSP_LCD_FillCircle(TS_State.touchX[0],TS_State.touchY[0],4);
+//	  	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
