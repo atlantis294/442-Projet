@@ -1,8 +1,9 @@
-# Projet de 422
+# Projet de 422 : Carte embarquée
 ## Objectif : 
 Mettre en place un système permettant de faire bouger une carte sur l'écran d'un STM32.
 
 On utilise une carte IGN au format BMP RGB565 de taille 1707x700.
+
 On affichera sur un écran LCD de taille 480x272.
 Pour cela on aura un travail de redimensionnement. 
 
