@@ -12,7 +12,7 @@ On utilise une carte IGN au format BMP RGB565 de taille 1707x700.
            width: 60%;"
     src="mapENS.bmp" 
     alt="Carte utilisé">
-<!-- </img> -->
+</img>
 
 On affichera sur un écran LCD de taille 480x272.
 Pour cela on aura un travail de redimensionnement. 
