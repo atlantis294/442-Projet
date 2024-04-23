@@ -5,14 +5,15 @@ Mettre en place un système permettant de faire bouger une carte sur l'écran d'
 On utilise une carte IGN au format BMP RGB565 de taille 1707x700.
 
 
-<img 
+<!-- <img 
     style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"
     src="mapENS.bmp" 
     alt="Carte utilisé">
-</img>
+</img> -->
+![Carte utilisé](mapENS.bmp)
 
 On affichera sur un écran LCD de taille 480x272.
 Pour cela on aura un travail de redimensionnement. 
