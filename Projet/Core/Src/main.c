@@ -42,9 +42,6 @@
 #include "stdlib.h"
 #include "bitmaps.h"
 #include "fatfs_storage.h"
-
-
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -166,7 +163,7 @@ int main(void)
 	f_read(&file, (TCHAR*) image, 200, &byteRead);
 	f_close(&file);
 
-  sprintf(text, "file: %d  fatfs: %d      ",res,fatfs);
+  sprintf(text, "file f_open: %d       ",res);
 	BSP_LCD_DisplayStringAtLine(8,(uint8_t*) text);
 
 	//Entete début
