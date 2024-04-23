@@ -1,6 +1,0 @@
-site_name: 442 Projet
-nav: 
-    - Home: projet.md
-theme: readthedocs
-site_url: https://atlantis294.github.io/442-Projet/
-site_dir: public
