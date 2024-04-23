@@ -86,9 +86,9 @@ void MX_FREERTOS_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	char text[50] = { };
-	static TS_StateTypeDef TS_State;
-	uint32_t potl, potr, joystick_h, joystick_v;
+//	char text[50] = { };
+//	static TS_StateTypeDef TS_State;
+//	uint32_t potl, potr, joystick_h, joystick_v;
 	ADC_ChannelConfTypeDef sConfig = { 0 };
 	sConfig.Rank = ADC_REGULAR_RANK_1;
 	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
@@ -168,47 +168,47 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin,
-				HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
-		HAL_GPIO_WritePin(LED14_GPIO_Port, LED14_Pin,
-				HAL_GPIO_ReadPin(BP2_GPIO_Port, BP2_Pin));
-		sprintf(text, "BP1 : %d", HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
-		BSP_LCD_DisplayStringAtLine(5, (uint8_t*) text);
-
-		sConfig.Channel = ADC_CHANNEL_6;
-		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-		HAL_ADC_Start(&hadc3);
-		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
-			;
-		potr = HAL_ADC_GetValue(&hadc3);
-
-		sConfig.Channel = ADC_CHANNEL_7;
-		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-		HAL_ADC_Start(&hadc3);
-		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
-			;
-		potl = HAL_ADC_GetValue(&hadc3);
-
-		sConfig.Channel = ADC_CHANNEL_8;
-		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-		HAL_ADC_Start(&hadc3);
-		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
-			;
-		joystick_v = HAL_ADC_GetValue(&hadc3);
-
-		HAL_ADC_Start(&hadc1);
-		while (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
-			;
-		joystick_h = HAL_ADC_GetValue(&hadc1);
-
-		sprintf(text, "POTL : %4u POTR : %4u joy_v : %4u joy_h : %4u",
-				(uint16_t) potl, (uint16_t) potr, (uint16_t) joystick_v, (uint16_t) joystick_h);
-		BSP_LCD_DisplayStringAtLine(9, (uint8_t*) text);
-
-		BSP_TS_GetState(&TS_State);
-		if (TS_State.touchDetected) {
-			BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 4);
-		}
+//		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin,
+//				HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
+//		HAL_GPIO_WritePin(LED14_GPIO_Port, LED14_Pin,
+//				HAL_GPIO_ReadPin(BP2_GPIO_Port, BP2_Pin));
+//		sprintf(text, "BP1 : %d", HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
+//		BSP_LCD_DisplayStringAtLine(5, (uint8_t*) text);
+//
+//		sConfig.Channel = ADC_CHANNEL_6;
+//		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+//		HAL_ADC_Start(&hadc3);
+//		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+//			;
+//		potr = HAL_ADC_GetValue(&hadc3);
+//
+//		sConfig.Channel = ADC_CHANNEL_7;
+//		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+//		HAL_ADC_Start(&hadc3);
+//		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+//			;
+//		potl = HAL_ADC_GetValue(&hadc3);
+//
+//		sConfig.Channel = ADC_CHANNEL_8;
+//		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+//		HAL_ADC_Start(&hadc3);
+//		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+//			;
+//		joystick_v = HAL_ADC_GetValue(&hadc3);
+//
+//		HAL_ADC_Start(&hadc1);
+//		while (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
+//			;
+//		joystick_h = HAL_ADC_GetValue(&hadc1);
+//
+//		sprintf(text, "POTL : %4u POTR : %4u joy_v : %4u joy_h : %4u",
+//				(uint16_t) potl, (uint16_t) potr, (uint16_t) joystick_v, (uint16_t) joystick_h);
+//		BSP_LCD_DisplayStringAtLine(9, (uint8_t*) text);
+//
+//		BSP_TS_GetState(&TS_State);
+//		if (TS_State.touchDetected) {
+//			BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 4);
+//		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

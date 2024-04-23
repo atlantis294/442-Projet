@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -43,34 +43,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := TP5_FatFs_AlbumPhoto_2024
+BUILD_ARTIFACT_NAME := Projet
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-TP5_FatFs_AlbumPhoto_2024.elf \
+Projet.elf \
 
 MAP_FILES += \
-TP5_FatFs_AlbumPhoto_2024.map \
+Projet.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-TP5_FatFs_AlbumPhoto_2024.list \
+Projet.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: TP5_FatFs_AlbumPhoto_2024.elf secondary-outputs
+main-build: Projet.elf secondary-outputs
 
 # Tool invocations
-TP5_FatFs_AlbumPhoto_2024.elf TP5_FatFs_AlbumPhoto_2024.map: $(OBJS) $(USER_OBJS) /home/tomin/STM32CubeIDE/workspace_2/TP5_FatFs_AlbumPhoto_2024/STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "TP5_FatFs_AlbumPhoto_2024.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/tomin/STM32CubeIDE/workspace_2/TP5_FatFs_AlbumPhoto_2024/STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP5_FatFs_AlbumPhoto_2024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Projet.elf Projet.map: $(OBJS) $(USER_OBJS) C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Projet.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -79,14 +79,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TP5_FatFs_AlbumPhoto_2024.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TP5_FatFs_AlbumPhoto_2024.list"
+Projet.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Projet.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) TP5_FatFs_AlbumPhoto_2024.elf TP5_FatFs_AlbumPhoto_2024.list TP5_FatFs_AlbumPhoto_2024.map default.size.stdout
+	-$(RM) Projet.elf Projet.list Projet.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
