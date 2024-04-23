@@ -148,9 +148,9 @@ int main(void)
   BSP_LCD_SetBackColor(00);
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 
-  uint8_t fatfs;
+  uint8_t fatfs=0;
   //pb configuration fatfs
-  fatfs=FATFS_LinkDriver(&SD_Driver, SDPath);
+//  fatfs=FATFS_LinkDriver(&SD_Driver, SDPath);
 
 	char image[200]={};
   char text[50]={};
