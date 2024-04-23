@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -161,7 +161,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     PF9     ------> ADC3_IN7
     PF8     ------> ADC3_IN6
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_10|ARDUINO_A2_Pin|ARDUINO_A3_Pin;
+    GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_9|GPIO_PIN_8;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
@@ -205,7 +205,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
     PF9     ------> ADC3_IN7
     PF8     ------> ADC3_IN6
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_10|ARDUINO_A2_Pin|ARDUINO_A3_Pin);
+    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_10|GPIO_PIN_9|GPIO_PIN_8);
 
   /* USER CODE BEGIN ADC3_MspDeInit 1 */
 

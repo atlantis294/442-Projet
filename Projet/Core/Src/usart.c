@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -198,9 +198,6 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
     HAL_GPIO_Init(VCP_TX_GPIO_Port, &GPIO_InitStruct);
 
-    /* USART1 interrupt Init */
-    HAL_NVIC_SetPriority(USART1_IRQn, 7, 0);
-    HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspInit 1 */
 
   /* USER CODE END USART1_MspInit 1 */
@@ -228,7 +225,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     PC7     ------> USART6_RX
     PC6     ------> USART6_TX
     */
-    GPIO_InitStruct.Pin = ARDUINO_RX_D0_Pin|ARDUINO_TX_D1_Pin;
+    GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_6;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -278,8 +275,6 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
     HAL_GPIO_DeInit(VCP_TX_GPIO_Port, VCP_TX_Pin);
 
-    /* USART1 interrupt Deinit */
-    HAL_NVIC_DisableIRQ(USART1_IRQn);
   /* USER CODE BEGIN USART1_MspDeInit 1 */
 
   /* USER CODE END USART1_MspDeInit 1 */
@@ -296,7 +291,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
     PC7     ------> USART6_RX
     PC6     ------> USART6_TX
     */
-    HAL_GPIO_DeInit(GPIOC, ARDUINO_RX_D0_Pin|ARDUINO_TX_D1_Pin);
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_7|GPIO_PIN_6);
 
   /* USER CODE BEGIN USART6_MspDeInit 1 */
 

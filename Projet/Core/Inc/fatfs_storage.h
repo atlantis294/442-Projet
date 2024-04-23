@@ -96,7 +96,6 @@ extern "C"
 uint32_t Storage_Init (void);
 uint32_t Storage_OpenReadFile(uint8_t *Address, const char* BmpName);
 uint32_t Storage_GetDirectoryBitmapFiles (const char* DirName, char* Files[]);
-uint32_t Storage_GetDirectoryWavFiles (const char* DirName, char* Files[]);
 uint32_t Storage_CheckBitmapFile(const char* BmpName, uint32_t *FileLen);
 uint8_t Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
 

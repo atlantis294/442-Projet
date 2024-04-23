@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -139,10 +139,10 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
     PB8     ------> I2C1_SCL
     PB9     ------> I2C1_SDA
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+    GPIO_InitStruct.Pin = ARDUINO_SCL_D15_Pin|ARDUINO_SDA_D14_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -202,9 +202,9 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
     PB8     ------> I2C1_SCL
     PB9     ------> I2C1_SDA
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_8);
+    HAL_GPIO_DeInit(ARDUINO_SCL_D15_GPIO_Port, ARDUINO_SCL_D15_Pin);
 
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_9);
+    HAL_GPIO_DeInit(ARDUINO_SDA_D14_GPIO_Port, ARDUINO_SDA_D14_Pin);
 
   /* USER CODE BEGIN I2C1_MspDeInit 1 */
 

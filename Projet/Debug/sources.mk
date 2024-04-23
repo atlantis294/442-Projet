@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
+# Toolchain: GNU Tools for STM32 (11.3.rel1)
 ################################################################################
 
 ELF_SRCS := 
@@ -27,6 +27,7 @@ Core/Startup \
 Drivers/STM32F7xx_HAL_Driver/Src \
 FATFS/App \
 FATFS/Target \
+Fonts \
 Middlewares/Third_Party/FatFs/src \
 Middlewares/Third_Party/FatFs/src/option \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \

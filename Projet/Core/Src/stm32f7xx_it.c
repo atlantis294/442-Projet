@@ -1,20 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32f7xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32f7xx_it.c
+ * @brief   Interrupt Service Routines.
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under Ultimate Liberty license
+ * SLA0044, the "License"; You may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at:
+ *                             www.st.com/SLA0044
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -22,6 +23,7 @@
 #include "stm32f7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stm32746g_discovery_ts.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,12 +57,10 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DAC_HandleTypeDef hdac;
-extern DMA2D_HandleTypeDef hdma2d;
 extern LTDC_HandleTypeDef hltdc;
 extern DMA_HandleTypeDef hdma_sdmmc1_rx;
 extern DMA_HandleTypeDef hdma_sdmmc1_tx;
-extern UART_HandleTypeDef huart1;
+extern SD_HandleTypeDef hsd1;
 extern TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN EV */
@@ -79,9 +79,8 @@ void NMI_Handler(void)
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
-  {
-  }
+	while (1) {
+	}
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 
@@ -166,17 +165,31 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles USART1 global interrupt.
+  * @brief This function handles EXTI line[15:10] interrupts.
   */
-void USART1_IRQHandler(void)
+void EXTI15_10_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART1_IRQn 0 */
+  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+	HAL_GPIO_TogglePin(LED11_GPIO_Port, LED11_Pin);
+  /* USER CODE END EXTI15_10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(LCD_INT_Pin);
+  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
+  /* USER CODE END EXTI15_10_IRQn 1 */
+}
 
-  /* USER CODE END USART1_IRQn 1 */
+/**
+  * @brief This function handles SDMMC1 global interrupt.
+  */
+void SDMMC1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SDMMC1_IRQn 0 */
+
+  /* USER CODE END SDMMC1_IRQn 0 */
+  HAL_SD_IRQHandler(&hsd1);
+  /* USER CODE BEGIN SDMMC1_IRQn 1 */
+
+  /* USER CODE END SDMMC1_IRQn 1 */
 }
 
 /**
@@ -187,9 +200,6 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
 
   /* USER CODE END TIM6_DAC_IRQn 0 */
-  if (hdac.State != HAL_DAC_STATE_RESET) {
-    HAL_DAC_IRQHandler(&hdac);
-  }
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
@@ -236,20 +246,6 @@ void LTDC_IRQHandler(void)
   /* USER CODE BEGIN LTDC_IRQn 1 */
 
   /* USER CODE END LTDC_IRQn 1 */
-}
-
-/**
-  * @brief This function handles DMA2D global interrupt.
-  */
-void DMA2D_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA2D_IRQn 0 */
-
-  /* USER CODE END DMA2D_IRQn 0 */
-  HAL_DMA2D_IRQHandler(&hdma2d);
-  /* USER CODE BEGIN DMA2D_IRQn 1 */
-
-  /* USER CODE END DMA2D_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

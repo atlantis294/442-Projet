@@ -24,8 +24,6 @@ Core/Src/stm32746g_discovery_lcd.o: ../Core/Src/stm32746g_discovery_lcd.c \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h \
- ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dac.h \
- ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dac_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h \
@@ -47,10 +45,7 @@ Core/Src/stm32746g_discovery_lcd.o: ../Core/Src/stm32746g_discovery_lcd.c \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
  ../Core/Inc/stm32746g_discovery.h ../Core/Inc/../../Fonts/fonts.h \
- ../Core/Src/../../Fonts/fonts.h ../Core/Src/../../Fonts/font24.c \
- ../Core/Src/../../Fonts/fonts.h ../Core/Src/../../Fonts/font20.c \
- ../Core/Src/../../Fonts/font16.c ../Core/Src/../../Fonts/font12.c \
- ../Core/Src/../../Fonts/font8.c
+ ../Core/Src/../../Fonts/fonts.h
 ../Core/Inc/stm32746g_discovery_lcd.h:
 ../Core/Inc/rk043fn48h.h:
 ../Core/Inc/stm32746g_discovery_sdram.h:
@@ -77,8 +72,6 @@ Core/Src/stm32746g_discovery_lcd.o: ../Core/Src/stm32746g_discovery_lcd.c \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_adc_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dma2d.h:
-../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dac.h:
-../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_dac_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h:
@@ -102,9 +95,3 @@ Core/Src/stm32746g_discovery_lcd.o: ../Core/Src/stm32746g_discovery_lcd.c \
 ../Core/Inc/stm32746g_discovery.h:
 ../Core/Inc/../../Fonts/fonts.h:
 ../Core/Src/../../Fonts/fonts.h:
-../Core/Src/../../Fonts/font24.c:
-../Core/Src/../../Fonts/fonts.h:
-../Core/Src/../../Fonts/font20.c:
-../Core/Src/../../Fonts/font16.c:
-../Core/Src/../../Fonts/font12.c:
-../Core/Src/../../Fonts/font8.c:

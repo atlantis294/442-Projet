@@ -269,44 +269,6 @@ uint32_t Storage_GetDirectoryBitmapFiles (const char* DirName, char* Files[])
   return index;
 }
 
-uint32_t Storage_GetDirectoryWavFiles (const char* DirName, char* Files[])
-{
-  FRESULT res;
-  uint32_t index = 0;
-
-  /* Open filesystem */
-  if(f_mount(&fs, (TCHAR const*)"",0) != FR_OK)
-  {
-    return 0;
-  }
-
-  /* Start to search for wave files */
-  res = f_findfirst(&dir, &fno, DirName, "*.wav");
-
-  /* Repeat while an item is found */
-  while (fno.fname[0])
-  {
-    if(res == FR_OK)
-    {
-      if(index < 50)
-      {
-        sprintf (Files[index++], "%s", fno.fname);
-      }
-      /* Search for next item */
-      res = f_findnext(&dir, &fno);
-    }
-    else
-    {
-      index = 0;
-      break;
-    }
-  }
-
-  f_closedir(&dir);
-
-  return index;
-}
-
 /**
   * @brief  Compares two buffers.
   * @param  pBuffer1, pBuffer2: buffers to be compared.

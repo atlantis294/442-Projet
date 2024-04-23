@@ -1,26 +1,27 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Album photo sur carte SD
+ *
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under Ultimate Liberty license
+ * SLA0044, the "License"; You may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at:
+ *                             www.st.com/SLA0044
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
 #include "adc.h"
-#include "dac.h"
 #include "dma.h"
 #include "dma2d.h"
 #include "fatfs.h"
@@ -39,9 +40,9 @@
 #include "stm32746g_discovery_lcd.h"
 #include "stm32746g_discovery_ts.h"
 #include "stdio.h"
+#include "fatfs_storage.h"
 #include "stdlib.h"
 #include "bitmaps.h"
-#include "fatfs_storage.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +52,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,7 +63,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t *uwInternelBuffer;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,13 +71,11 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-ADC_ChannelConfTypeDef sConfig = {0};
-uint8_t caractere_recu;
 
 /* USER CODE END 0 */
 
@@ -85,12 +85,21 @@ uint8_t caractere_recu;
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
-	//ADC_ChannelConfTypeDef sConfig = {0};
+	char text[50] = { };
+	static TS_StateTypeDef TS_State;
+	uint32_t potl, potr, joystick_h, joystick_v;
+	ADC_ChannelConfTypeDef sConfig = { 0 };
 	sConfig.Rank = ADC_REGULAR_RANK_1;
 	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   /* USER CODE END 1 */
+/* Enable the CPU Cache */
+
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
+
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -114,8 +123,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_DMA2D_Init();
-  MX_FMC_Init();
+  MX_ADC3_Init();
   MX_I2C1_Init();
   MX_I2C3_Init();
   MX_LTDC_Init();
@@ -129,139 +137,82 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
   MX_ADC1_Init();
-  MX_DAC_Init();
   MX_UART7_Init();
+  MX_FMC_Init();
+  MX_DMA2D_Init();
   MX_SDMMC1_SD_Init();
-  MX_ADC3_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  BSP_LCD_Init();
-  BSP_LCD_LayerDefaultInit(0, LCD_FB_START_ADDRESS);
-  BSP_LCD_LayerDefaultInit(1, LCD_FB_START_ADDRESS+ BSP_LCD_GetXSize()*BSP_LCD_GetYSize()*4);
-  BSP_LCD_DisplayOn();
-  BSP_LCD_SelectLayer(0);
-  BSP_LCD_Clear(LCD_COLOR_BLACK);
-  BSP_LCD_SelectLayer(1);
-  BSP_LCD_Clear(00);
-  BSP_LCD_SetFont(&Font24);
-  BSP_LCD_SetTextColor(LCD_COLOR_RED);
-  BSP_LCD_SetBackColor(00);
-  BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
+	BSP_LCD_Init();
+	BSP_LCD_LayerDefaultInit(0, LCD_FB_START_ADDRESS);
+	BSP_LCD_LayerDefaultInit(1,
+	LCD_FB_START_ADDRESS + BSP_LCD_GetXSize() * BSP_LCD_GetYSize() * 4);
+	BSP_LCD_DisplayOn();
+	BSP_LCD_SelectLayer(1);
+	BSP_LCD_Clear(LCD_COLOR_WHITE);
+	BSP_LCD_SetFont(&Font12);
+	BSP_LCD_SetTextColor(LCD_COLOR_RED);
+	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
+	BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
+//	BSP_SD_Init();
 
-  uint8_t fatfs=0;
-  //pb configuration fatfs
-//  fatfs=FATFS_LinkDriver(&SD_Driver, SDPath);
-
-	char image[200]={};
-  char text[50]={};
-	FIL file;
-	uwInternelBuffer = (uint8_t*) 0xC0260000;
-	unsigned int byteRead;
-	TCHAR pathfile[] = "mapENS.bmp";
-    FRESULT res;
-	res=f_open(&file, pathfile, FA_READ); // on ne prend que le fichier
-	f_read(&file, (TCHAR*) image, 200, &byteRead);
-	f_close(&file);
-
-  sprintf(text, "file f_open: %d       ",res);
-	BSP_LCD_DisplayStringAtLine(8,(uint8_t*) text);
-
-	//Entete début
-	//Largeur
-	image[18] = 0xE0;
-	image[19] = 0x01;
-	image[20] = 0x00;
-	image[21] = 0x00;
-	//hauteur
-	image[22] = 0x10;
-	image[23] = 0x01;
-	image[24] = 0x00;
-	image[25] = 0x00;
-
-
-
-  uint8_t Test[25]="Fin init\r\n";
-  HAL_UART_Transmit(&huart1,Test,sizeof(Test),10);
-  HAL_UART_Receive_IT(&huart1,&caractere_recu,1);
-  //HAL_RTC_GetDate()
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in cmsis_os2.c) */
+  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 
   /* Start scheduler */
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+	while (1) {
+		HAL_GPIO_WritePin(LED13_GPIO_Port, LED13_Pin,
+				HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
+		HAL_GPIO_WritePin(LED14_GPIO_Port, LED14_Pin,
+				HAL_GPIO_ReadPin(BP2_GPIO_Port, BP2_Pin));
+		sprintf(text, "BP1 : %d", HAL_GPIO_ReadPin(BP1_GPIO_Port, BP1_Pin));
+		BSP_LCD_DisplayStringAtLine(5, (uint8_t*) text);
 
-	  	//HAL_RTC_GetTime()
-	  	 // Bouton + LED
-	  	//HAL_GPIO_WritePin(LED13_GPIO_Port,LED13_Pin,HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
-		//HAL_GPIO_WritePin(LED14_GPIO_Port,LED14_Pin,HAL_GPIO_ReadPin(BP2_GPIO_Port,BP2_Pin));
-		//sprintf(text,"BP1 : %d",HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
-		//BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-//	  	BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
-//	  	sprintf(text,"BP : %d",HAL_GPIO_ReadPin(BP1_GPIO_Port,BP1_Pin));
-//	  	BSP_LCD_DisplayStringAtLine(1,(uint8_t*) text);
+		sConfig.Channel = ADC_CHANNEL_6;
+		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+		HAL_ADC_Start(&hadc3);
+		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+			;
+		potr = HAL_ADC_GetValue(&hadc3);
 
-	  	// Potar 1
-		//sConfig.Channel = ADC_CHANNEL_6;
-		//HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-		//HAL_ADC_Start(&hadc3);
-		//while(HAL_ADC_PollForConversion(&hadc3, 100)!=HAL_OK);
-		//potr = HAL_ADC_GetValue(&hadc3);
+		sConfig.Channel = ADC_CHANNEL_7;
+		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+		HAL_ADC_Start(&hadc3);
+		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+			;
+		potl = HAL_ADC_GetValue(&hadc3);
 
-//
-//	  	RTC_DateTypeDef sDate;
-//	  	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
-//	  	sprintf(text,"Date actuelle: %02d-%02d-%02d", sDate.Year, sDate.Month, sDate.Date);
-//	  	BSP_LCD_DisplayStringAtLine(2,(uint8_t*) text);
-//
-//	  	RTC_TimeTypeDef sTime; // Structure pour stocker l'heure
-//		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-//		sprintf(text2,"Heure actuelle: %02d:%02d:%02d", sTime.Hours, sTime.Minutes, sTime.Seconds);
-//		BSP_LCD_DisplayStringAtLine(3,(uint8_t*) text2);
-//
-//		HAL_UART_Receive(&huart1,&caractere_recu,1,1);
-//		if(caractere_recu=='a') {
-//			strcat(text2,"\r\n");
-//			HAL_UART_Transmit(&huart1,text2,sizeof(text2),10);
-//			caractere_recu=0;
-//		}
-//
-//		sConfig.Channel = ADC_CHANNEL_8;
-//		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
-//		HAL_ADC_Start(&hadc3);
-//		while(HAL_ADC_PollForConversion(&hadc3, 100)!=HAL_OK);
-//		joystick_v = HAL_ADC_GetValue(&hadc3);
-//
-//		HAL_ADC_Start(&hadc1);
-//		while(HAL_ADC_PollForConversion(&hadc1, 100)!=HAL_OK);
-//		joystick_h = HAL_ADC_GetValue(&hadc1);
-//
-//		BSP_LCD_SetTextColor(LCD_COLOR_RED);
-//		sprintf(text,"POTL : %4u joy_v : %4u joy_h : %4u",(uint16_t)potl,(uint16_t)joystick_v,(uint16_t)joystick_h);
-//		BSP_LCD_DisplayStringAtLine(9,(uint8_t*) text);
-//
-//		BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
-//		BSP_TS_GetState(&TS_State);
-//
-//		sprintf(text,"                     ");
-//		BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-//		if(TS_State.touchDetected){
-//			sprintf(text,"   Essai de l'ASPIQUE");
-//			BSP_LCD_DisplayStringAtLine(5,(uint8_t*) text);
-//		  BSP_LCD_FillCircle(TS_State.touchX[0],TS_State.touchY[0],4);
-//	  	  }
+		sConfig.Channel = ADC_CHANNEL_8;
+		HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+		HAL_ADC_Start(&hadc3);
+		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+			;
+		joystick_v = HAL_ADC_GetValue(&hadc3);
+
+		HAL_ADC_Start(&hadc1);
+		while (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
+			;
+		joystick_h = HAL_ADC_GetValue(&hadc1);
+
+		sprintf(text, "POTL : %4u POTR : %4u joy_v : %4u joy_h : %4u",
+				(uint16_t) potl, (uint16_t) potr, (uint16_t) joystick_v, (uint16_t) joystick_h);
+		BSP_LCD_DisplayStringAtLine(9, (uint8_t*) text);
+
+		BSP_TS_GetState(&TS_State);
+		if (TS_State.touchDetected) {
+			BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 4);
+		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+	}
   /* USER CODE END 3 */
 }
 
@@ -349,19 +300,6 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-// ==============================================================================================================
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	if (caractere_recu == 'a')
-		HAL_GPIO_WritePin(LED16_GPIO_Port, LED16_Pin, 1);
-	if (caractere_recu == 'e')
-		HAL_GPIO_WritePin(LED16_GPIO_Port, LED16_Pin, 0);
-	HAL_UART_Receive_IT(&huart1, &caractere_recu, 1);
-
-}
-
-
-//===============================================================================================================
 
 /* USER CODE END 4 */
 
@@ -393,11 +331,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	BSP_LCD_DisplayStringAtLine(5,
+			(uint8_t*) " ERREUR                                            ");
+	BSP_LCD_DisplayStringAtLine(6,
+			(uint8_t*) " Verifiez que la carte SD est bien inseree         ");
+	BSP_LCD_DisplayStringAtLine(7,
+			(uint8_t*) " Verifiez que les images sont au bon format (.BMP) ");
+	while (1) { //On vient mourir ici lorsqu'il y a une erreur
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 
