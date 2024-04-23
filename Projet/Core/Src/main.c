@@ -42,6 +42,9 @@
 #include "stdlib.h"
 #include "bitmaps.h"
 #include "fatfs_storage.h"
+
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
