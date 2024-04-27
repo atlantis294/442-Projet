@@ -1508,3 +1508,271 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2024-04-27 09:36:05,159 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 702mS.
 2024-04-27 09:36:05,159 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
 2024-04-27 09:36:05,164 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-04-27 13:18:17,870 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 731041888 Bytes (1073741824)
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F7
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F7
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F7
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F7
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LTDC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: I2C
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SDMMC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RTC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA2D
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FMC
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: UART
+2024-04-27 13:18:17,996 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8F7
+2024-04-27 13:18:17,997 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-27 13:18:17,997 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FATFS
+2024-04-27 13:18:17,998 [INFO] CodeGenerator:807 - code generatio: config db path: C:/Users/jfarn/.stm32cubemx/databases/DB.6.0.100/db/
+2024-04-27 13:18:18,019 [WARN] IP:2120 - LayerIdx_L1 not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:18,036 [WARN] IP:2120 - OutPutPullUp not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:18,036 [WARN] IP:2120 - OutPutPullUp not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:18,037 [WARN] IP:2120 - OutPutPullUp not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:18,038 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-27 13:18:18,038 [INFO] Argument:327 - 	 sub Args: 
+2024-04-27 13:18:18,038 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream3
+2024-04-27 13:18:18,038 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream3
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:327 - 	 sub Args: 
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_4
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_4
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Modevalue: DMA_PFCTRL
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Modevalue: DMA_PFCTRL
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_INC4
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_INC4
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_INC4
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_INC4
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:327 - 	 sub Args: 
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Instancevalue: DMA2_Stream6
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Instancevalue: DMA2_Stream6
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-27 13:18:18,039 [INFO] Argument:327 - 	 sub Args: 
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_4
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_4
+2024-04-27 13:18:18,039 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-04-27 13:18:18,039 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : Modevalue: DMA_PFCTRL
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : Modevalue: DMA_PFCTRL
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_INC4
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_INC4
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_INC4
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_INC4
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-27 13:18:18,040 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-27 13:18:18,142 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\license.tmp_save
+2024-04-27 13:18:18,223 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\license.tmp
+2024-04-27 13:18:18,306 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\gpio.c_save
+2024-04-27 13:18:18,409 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\gpio.c
+2024-04-27 13:18:18,420 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\gpio.h_save
+2024-04-27 13:18:18,492 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\gpio.h
+2024-04-27 13:18:19,438 [WARN] IP:2120 - OutPutPullUp not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:19,439 [WARN] IP:2120 - OutPutPullUp not found: check if there is a RefParameter without a condition.
+2024-04-27 13:18:20,662 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-27 13:18:20,667 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_inc.tmp_save
+2024-04-27 13:18:20,754 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_inc.tmp
+2024-04-27 13:18:20,757 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_vars.tmp_save
+2024-04-27 13:18:20,832 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_vars.tmp
+2024-04-27 13:18:20,835 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_pfp.tmp_save
+2024-04-27 13:18:20,899 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_pfp.tmp
+2024-04-27 13:18:20,902 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-04-27 13:18:20,981 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_obj_creat.tmp
+2024-04-27 13:18:20,984 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-04-27 13:18:21,036 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_kernelStart.tmp
+2024-04-27 13:18:21,040 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_default_thread.tmp_save
+2024-04-27 13:18:21,105 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_default_thread.tmp
+2024-04-27 13:18:21,109 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_threads.tmp_save
+2024-04-27 13:18:21,172 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_threads.tmp
+2024-04-27 13:18:21,181 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_HalInit.tmp_save
+2024-04-27 13:18:21,269 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_HalInit.tmp
+2024-04-27 13:18:21,272 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_vars.tmp_save
+2024-04-27 13:18:21,330 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_vars.tmp
+2024-04-27 13:18:21,333 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_ext_vars.tmp_save
+2024-04-27 13:18:21,386 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_ext_vars.tmp
+2024-04-27 13:18:21,389 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_inc.tmp_save
+2024-04-27 13:18:21,448 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_inc.tmp
+2024-04-27 13:18:21,461 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-27 13:18:21,468 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_inc.tmp_save
+2024-04-27 13:18:21,542 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_inc.tmp
+2024-04-27 13:18:21,546 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_vars.tmp_save
+2024-04-27 13:18:21,588 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_vars.tmp
+2024-04-27 13:18:21,593 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_pfp.tmp_save
+2024-04-27 13:18:21,633 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_pfp.tmp
+2024-04-27 13:18:21,650 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-04-27 13:18:21,693 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_obj_creat.tmp
+2024-04-27 13:18:21,697 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-04-27 13:18:21,739 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_kernelStart.tmp
+2024-04-27 13:18:21,743 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_default_thread.tmp_save
+2024-04-27 13:18:21,783 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_default_thread.tmp
+2024-04-27 13:18:21,788 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_threads.tmp_save
+2024-04-27 13:18:21,828 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\rtos_threads.tmp
+2024-04-27 13:18:21,843 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\FreeRTOSConfig.h_save
+2024-04-27 13:18:21,919 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\FreeRTOSConfig.h
+2024-04-27 13:18:21,934 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\freertos.c_save
+2024-04-27 13:18:22,039 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\freertos.c
+2024-04-27 13:18:22,071 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\adc.c_save
+2024-04-27 13:18:22,159 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\adc.c
+2024-04-27 13:18:22,171 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\adc.h_save
+2024-04-27 13:18:22,242 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\adc.h
+2024-04-27 13:18:22,250 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\cortex.tmp_save
+2024-04-27 13:18:22,334 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\cortex.tmp
+2024-04-27 13:18:22,408 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\dma.c_save
+2024-04-27 13:18:22,486 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\dma.c
+2024-04-27 13:18:22,500 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\dma.h_save
+2024-04-27 13:18:22,572 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\dma.h
+2024-04-27 13:18:22,593 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\dma2d.c_save
+2024-04-27 13:18:22,676 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\dma2d.c
+2024-04-27 13:18:22,679 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\dma2d.h_save
+2024-04-27 13:18:22,749 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\dma2d.h
+2024-04-27 13:18:22,757 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_HalInit.tmp_save
+2024-04-27 13:18:22,827 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_HalInit.tmp
+2024-04-27 13:18:22,832 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_vars.tmp_save
+2024-04-27 13:18:22,895 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_vars.tmp
+2024-04-27 13:18:22,903 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_ext_vars.tmp_save
+2024-04-27 13:18:22,953 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_ext_vars.tmp
+2024-04-27 13:18:22,959 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_inc.tmp_save
+2024-04-27 13:18:23,025 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\fatfs_inc.tmp
+2024-04-27 13:18:23,040 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\ffconf.h_save
+2024-04-27 13:18:23,139 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\ffconf.h
+2024-04-27 13:18:23,168 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\bsp_driver_sd.c_save
+2024-04-27 13:18:23,261 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\bsp_driver_sd.c
+2024-04-27 13:18:23,290 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\bsp_driver_sd.h_save
+2024-04-27 13:18:23,353 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\bsp_driver_sd.h
+2024-04-27 13:18:23,367 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\sd_diskio.h_save
+2024-04-27 13:18:23,443 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\sd_diskio.h
+2024-04-27 13:18:23,458 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\sd_diskio.c_save
+2024-04-27 13:18:23,547 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\sd_diskio.c
+2024-04-27 13:18:23,571 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\App\fatfs.c_save
+2024-04-27 13:18:23,646 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\App\fatfs.c
+2024-04-27 13:18:23,659 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\App\fatfs.h_save
+2024-04-27 13:18:23,730 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\App\fatfs.h
+2024-04-27 13:18:23,743 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\fatfs_platform.c_save
+2024-04-27 13:18:23,805 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\fatfs_platform.c
+2024-04-27 13:18:23,831 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\fatfs_platform.h_save
+2024-04-27 13:18:23,888 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\FATFS\Target\fatfs_platform.h
+2024-04-27 13:18:23,904 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\fmc.c_save
+2024-04-27 13:18:24,002 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\fmc.c
+2024-04-27 13:18:24,015 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\fmc.h_save
+2024-04-27 13:18:24,086 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\fmc.h
+2024-04-27 13:18:24,106 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\i2c.c_save
+2024-04-27 13:18:24,199 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\i2c.c
+2024-04-27 13:18:24,204 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\i2c.h_save
+2024-04-27 13:18:24,274 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\i2c.h
+2024-04-27 13:18:24,291 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\ltdc.c_save
+2024-04-27 13:18:24,399 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\ltdc.c
+2024-04-27 13:18:24,403 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\ltdc.h_save
+2024-04-27 13:18:24,474 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\ltdc.h
+2024-04-27 13:18:24,488 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\rtc.c_save
+2024-04-27 13:18:24,575 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\rtc.c
+2024-04-27 13:18:24,580 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\rtc.h_save
+2024-04-27 13:18:24,649 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\rtc.h
+2024-04-27 13:18:24,668 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\sdmmc.c_save
+2024-04-27 13:18:24,759 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\sdmmc.c
+2024-04-27 13:18:24,764 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\sdmmc.h_save
+2024-04-27 13:18:24,829 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\sdmmc.h
+2024-04-27 13:18:24,844 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\spi.c_save
+2024-04-27 13:18:24,925 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\spi.c
+2024-04-27 13:18:24,930 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\spi.h_save
+2024-04-27 13:18:24,999 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\spi.h
+2024-04-27 13:18:25,017 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\tim.c_save
+2024-04-27 13:18:25,122 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\tim.c
+2024-04-27 13:18:25,127 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\tim.h_save
+2024-04-27 13:18:25,206 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\tim.h
+2024-04-27 13:18:25,226 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\usart.c_save
+2024-04-27 13:18:25,317 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\usart.c
+2024-04-27 13:18:25,321 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\usart.h_save
+2024-04-27 13:18:25,391 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\usart.h
+2024-04-27 13:18:25,413 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_it.c_save
+2024-04-27 13:18:25,552 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_it.c
+2024-04-27 13:18:25,564 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\stm32f7xx_it.h_save
+2024-04-27 13:18:25,638 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\stm32f7xx_it.h
+2024-04-27 13:18:25,662 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_hal_msp.c_save
+2024-04-27 13:18:25,765 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_hal_msp.c
+2024-04-27 13:18:25,769 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\system.tmp_save
+2024-04-27 13:18:25,826 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\MXTmpFiles\system.tmp
+2024-04-27 13:18:25,840 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_hal_timebase_tim.c_save
+2024-04-27 13:18:25,915 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\stm32f7xx_hal_timebase_tim.c
+2024-04-27 13:18:25,932 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\stm32f7xx_hal_conf.h_save
+2024-04-27 13:18:26,026 [INFO] CodeEngine:335 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\stm32f7xx_hal_conf.h
+2024-04-27 13:18:26,068 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\main.h_save
+2024-04-27 13:18:26,178 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Inc\main.h
+2024-04-27 13:18:26,196 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\main.c_save
+2024-04-27 13:18:26,294 [INFO] CodeEngine:279 - Generated code: C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\Core\Src\main.c
+2024-04-27 13:18:26,638 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 210mS.
+2024-04-27 13:18:26,644 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-04-27 13:18:26,693 [INFO] ConfigFileManager:1503 - The Die is : DIE449
+2024-04-27 13:18:27,335 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 691mS.
+2024-04-27 13:18:27,336 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-04-27 13:18:27,342 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-04-27 13:45:52,434 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
