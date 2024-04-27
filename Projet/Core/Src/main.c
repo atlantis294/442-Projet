@@ -89,9 +89,9 @@ int main(void)
 //	char text[50] = { };
 //	static TS_StateTypeDef TS_State;
 //	uint32_t potl, potr, joystick_h, joystick_v;
-	ADC_ChannelConfTypeDef sConfig = { 0 };
-	sConfig.Rank = ADC_REGULAR_RANK_1;
-	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+//	ADC_ChannelConfTypeDef sConfig = { 0 };
+//	sConfig.Rank = ADC_REGULAR_RANK_1;
+//	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   /* USER CODE END 1 */
 /* Enable the CPU Cache */
 

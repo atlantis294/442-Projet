@@ -69,7 +69,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Core/Inc/stm32746g_discovery_sdram.h \
  ../Core/Inc/stm32746g_discovery.h ../Core/Inc/../../Fonts/fonts.h \
  ../Core/Inc/stm32746g_discovery_ts.h ../Core/Inc/ft5336.h \
- ../Core/Inc/ts.h ../Core/Inc/fatfs_storage.h ../Core/Inc/main.h
+ ../Core/Inc/ts.h ../Core/Inc/fatfs_storage.h ../Core/Inc/main.h \
+ ../Core/Inc/adc.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -151,3 +152,4 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Core/Inc/ts.h:
 ../Core/Inc/fatfs_storage.h:
 ../Core/Inc/main.h:
+../Core/Inc/adc.h:

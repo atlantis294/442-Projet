@@ -31,7 +31,7 @@
 #include "stm32746g_discovery_ts.h"
 #include "main.h"
 #include "fatfs_storage.h"
-
+#include "adc.h"
 
 /* USER CODE END Includes */
 
@@ -79,8 +79,9 @@ int32_t x=0,y=0;
 uint8_t *uwInternelBuffer; //Buffer pour la mémoire SDRAM
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osThreadId tackdeplacementHandle;
+osThreadId deplacement_tasHandle;
 osThreadId DisplayHandle;
+osThreadId Joystick_taskHandle;
 osMessageQId DeplacementQueueHandle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,8 +92,9 @@ void FabriquerEntete(char* image);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-void deplacement_fonction(void const * argument);
+void deplacement_function(void const * argument);
 void Display_fonction(void const * argument);
+void joystick_function(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -193,13 +195,17 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of tackdeplacement */
-  osThreadDef(tackdeplacement, deplacement_fonction, osPriorityRealtime, 0, 1024);
-  tackdeplacementHandle = osThreadCreate(osThread(tackdeplacement), NULL);
+  /* definition and creation of deplacement_tas */
+  osThreadDef(deplacement_tas, deplacement_function, osPriorityRealtime, 0, 1024);
+  deplacement_tasHandle = osThreadCreate(osThread(deplacement_tas), NULL);
 
   /* definition and creation of Display */
   osThreadDef(Display, Display_fonction, osPriorityIdle, 0, 4096);
   DisplayHandle = osThreadCreate(osThread(Display), NULL);
+
+  /* definition and creation of Joystick_task */
+  osThreadDef(Joystick_task, joystick_function, osPriorityHigh, 0, 1024);
+  Joystick_taskHandle = osThreadCreate(osThread(Joystick_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -225,14 +231,14 @@ void StartDefaultTask(void const * argument)
   /* USER CODE END StartDefaultTask */
 }
 
-/* USER CODE BEGIN Header_deplacement_fonction */
+/* USER CODE BEGIN Header_deplacement_function */
 /**
-* @brief Function implementing the tackdeplacement thread.
+* @brief Function implementing the deplacement_tas thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_deplacement_fonction */
-void deplacement_fonction(void const * argument)
+/* USER CODE END Header_deplacement_function */
+void deplacement_function(void const * argument)
 {
   /* USER CODE BEGIN deplacement_fonction */
 	TS_StateTypeDef TS_State;
@@ -268,7 +274,7 @@ void deplacement_fonction(void const * argument)
 				toucher[remplissage]=point;
 				remplissage++;
 				if (remplissage==1000)remplissage=0;
-			} 
+			}
 			else{
 				if (touch==0){
 					x0=TS_State.touchX[0];
@@ -347,6 +353,54 @@ void Display_fonction(void const * argument)
 		osDelay(200);
 	}
   /* USER CODE END Display_fonction */
+}
+
+/* USER CODE BEGIN Header_joystick_function */
+/**
+* @brief Function implementing the Joystick_task thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_joystick_function */
+void joystick_function(void const * argument)
+{
+  /* USER CODE BEGIN joystick_function */
+	ADC_ChannelConfTypeDef sConfig = {0};
+	sConfig.Rank = ADC_REGULAR_RANK_1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+	sConfig.Channel = ADC_CHANNEL_8;
+	HAL_ADC_ConfigChannel(&hadc3, &sConfig);
+	sConfig.Channel = ADC_CHANNEL_0;
+	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+	int32_t joystick_h, joystick_v;
+	char text[50]={};
+	mouvement deplacement;
+	/* Infinite loop */
+	for(;;)
+	{
+
+		HAL_ADC_Start(&hadc3);
+		while (HAL_ADC_PollForConversion(&hadc3, 100) != HAL_OK)
+			;
+		joystick_v = HAL_ADC_GetValue(&hadc3);
+
+		HAL_ADC_Start(&hadc1);
+		while (HAL_ADC_PollForConversion(&hadc1, 100) != HAL_OK)
+			;
+		joystick_h = HAL_ADC_GetValue(&hadc1);
+
+		deplacement.dx=-(joystick_h-2048)/8;
+		deplacement.dy=(joystick_v-2048)/8;
+		if ((abs(deplacement.dx)>100)||(abs(deplacement.dy)>100)){
+			xQueueSend(DeplacementQueueHandle, &deplacement, 0);
+			osDelay(500);
+		}
+
+//		sprintf(text, "joy_v : %4ld joy_h : %ld", deplacement.dy, deplacement.dx);
+//		BSP_LCD_DisplayStringAtLine(9, (uint8_t*) text);
+		osDelay(100);
+	}
+  /* USER CODE END joystick_function */
 }
 
 /* Private application code --------------------------------------------------*/
