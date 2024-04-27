@@ -1,57 +1,32 @@
-15:57:30 **** Incremental Build of configuration Debug for project Projet ****
+12:10:34 **** Incremental Build of configuration Debug for project Projet ****
 make -j16 all 
-arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/option/syscall.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/option/syscall.d" -MT"Middlewares/Third_Party/FatFs/src/option/syscall.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/option/syscall.o"
-arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/diskio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/diskio.d" -MT"Middlewares/Third_Party/FatFs/src/diskio.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/diskio.o"
-arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/ff.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/ff.d" -MT"Middlewares/Third_Party/FatFs/src/ff.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/ff.o"
-arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/ff_gen_drv.d" -MT"Middlewares/Third_Party/FatFs/src/ff_gen_drv.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/ff_gen_drv.o"
-arm-none-eabi-gcc "../FATFS/Target/sd_diskio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"FATFS/Target/sd_diskio.d" -MT"FATFS/Target/sd_diskio.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "FATFS/Target/sd_diskio.o"
-arm-none-eabi-gcc "../FATFS/App/fatfs.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"FATFS/App/fatfs.d" -MT"FATFS/App/fatfs.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "FATFS/App/fatfs.o"
-arm-none-eabi-gcc "../Core/Src/adc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/adc.d" -MT"Core/Src/adc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/adc.o"
-arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dma.o"
-arm-none-eabi-gcc "../Core/Src/dma2d.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dma2d.d" -MT"Core/Src/dma2d.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dma2d.o"
-arm-none-eabi-gcc "../Core/Src/fatfs_storage.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fatfs_storage.d" -MT"Core/Src/fatfs_storage.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fatfs_storage.o"
-arm-none-eabi-gcc "../Core/Src/fmc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmc.d" -MT"Core/Src/fmc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmc.o"
 arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
-arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/i2c.o"
-arm-none-eabi-gcc "../Core/Src/ltdc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ltdc.d" -MT"Core/Src/ltdc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ltdc.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/rtc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/rtc.d" -MT"Core/Src/rtc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rtc.o"
-arm-none-eabi-gcc "../Core/Src/sdmmc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sdmmc.d" -MT"Core/Src/sdmmc.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sdmmc.o"
-arm-none-eabi-gcc "../Core/Src/spi.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/spi.d" -MT"Core/Src/spi.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/spi.o"
-../Core/Src/freertos.c: In function 'Display_fonction':
-../Core/Src/freertos.c:314:10: warning: implicit declaration of function 'FabriquerEntete' [-Wimplicit-function-declaration]
-  314 |          FabriquerEntete(image);
-      |          ^~~~~~~~~~~~~~~
-arm-none-eabi-gcc "../Core/Src/stm32f7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_hal_msp.d" -MT"Core/Src/stm32f7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_hal_msp.o"
-../Core/Src/freertos.c:325:12: warning: implicit declaration of function 'RemplirImage' [-Wimplicit-function-declaration]
-  325 |            RemplirImage(x,y,image);
-      |            ^~~~~~~~~~~~
-../Core/Src/freertos.c: At top level:
-../Core/Src/freertos.c:336:7: warning: conflicting types for 'RemplirImage'; have 'void(uint16_t,  uint16_t,  char *)' {aka 'void(short unsigned int,  short unsigned int,  char *)'}
-  336 |  void RemplirImage(uint16_t x, uint16_t y, char* image){
-      |       ^~~~~~~~~~~~
-../Core/Src/freertos.c:325:12: note: previous implicit declaration of 'RemplirImage' with type 'void(uint16_t,  uint16_t,  char *)' {aka 'void(short unsigned int,  short unsigned int,  char *)'}
-  325 |            RemplirImage(x,y,image);
-      |            ^~~~~~~~~~~~
+../Core/Src/freertos.c: In function 'deplacement_fonction':
+../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
+  233 |         char text[50]={};
+      |              ^~~~
 ../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:337:36: warning: unused variable 'h' [-Wunused-variable]
-  337 |    int16_t largeur=480,hauteur=272,h=700,l=1707,offset=137;
-      |                                    ^
-../Core/Src/freertos.c: At top level:
-../Core/Src/freertos.c:359:7: warning: conflicting types for 'FabriquerEntete'; have 'void(char *)'
-  359 |  void FabriquerEntete(char* image){
-      |       ^~~~~~~~~~~~~~~
-../Core/Src/freertos.c:314:10: note: previous implicit declaration of 'FabriquerEntete' with type 'void(char *)'
-  314 |          FabriquerEntete(image);
-      |          ^~~~~~~~~~~~~~~
-arm-none-eabi-gcc "../Core/Src/stm32f7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f7xx_it.d" -MT"Core/Src/stm32f7xx_it.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f7xx_it.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:92:32: warning: variable 'sConfig' set but not used [-Wunused-but-set-variable]
-   92 |         ADC_ChannelConfTypeDef sConfig = { 0 };
-      |                                ^~~~~~~
-arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
-arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                                ^~~~
+../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                           ^~~~
+../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                      ^~~~
+../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                 ^~~~
+../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
+  324 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                                         ^
+../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                             ^~~~~~~
 arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
 Finished building target: Projet.elf
@@ -59,21 +34,138 @@ Finished building target: Projet.elf
 arm-none-eabi-size  Projet.elf 
 arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
    text	   data	    bss	    dec	    hex	filename
-  86320	    164	  38420	 124904	  1e7e8	Projet.elf
+  86996	    164	  71196	 158356	  26a94	Projet.elf
 Finished building: default.size.stdout
  
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/adc.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/dma.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/dma2d.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/fmc.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/gpio.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/i2c.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/ltdc.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/rtc.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/sdmmc.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/spi.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/stm32f7xx_hal_msp.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/tim.c is more recent than object file
-arm-none-eabi-objdump: Warning: source file C:/Users/jfarn/Documents/ENS/M1/442/Projet/Projet/Debug/../Core/Src/usart.c is more recent than object file
+Finished building: Projet.list
+ 
+12:10:41 **** Incremental Build of configuration Debug for project Projet ****
+make -j16 all 
+arm-none-eabi-size  Projet.elf 
+   text	   data	    bss	    dec	    hex	filename
+  86996	    164	  71196	 158356	  26a94	Projet.elf
+Finished building: default.size.stdout
+ 
+12:12:20 **** Incremental Build of configuration Debug for project Projet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'deplacement_fonction':
+../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
+  233 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c: In function 'RemplirImage':
+../Core/Src/freertos.c:333:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
+  333 |         FRESULT val0,val1,val2,val3;
+      |                                ^~~~
+../Core/Src/freertos.c:333:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
+  333 |         FRESULT val0,val1,val2,val3;
+      |                           ^~~~
+../Core/Src/freertos.c:333:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
+  333 |         FRESULT val0,val1,val2,val3;
+      |                      ^~~~
+../Core/Src/freertos.c:333:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
+  333 |         FRESULT val0,val1,val2,val3;
+      |                 ^~~~
+../Core/Src/freertos.c:325:14: warning: unused variable 'text' [-Wunused-variable]
+  325 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c:322:41: warning: unused variable 'h' [-Wunused-variable]
+  322 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                                         ^
+../Core/Src/freertos.c:322:29: warning: unused variable 'hauteur' [-Wunused-variable]
+  322 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                             ^~~~~~~
+arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
+Finished building target: Projet.elf
+ 
+arm-none-eabi-size  Projet.elf 
+arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
+   text	   data	    bss	    dec	    hex	filename
+  87012	    164	  71196	 158372	  26aa4	Projet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet.list
+ 
+12:13:21 **** Incremental Build of configuration Debug for project Projet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'deplacement_fonction':
+../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
+  233 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c: In function 'RemplirImage':
+../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                                ^~~~
+../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                           ^~~~
+../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                      ^~~~
+../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                 ^~~~
+../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
+  324 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                                         ^
+../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                             ^~~~~~~
+arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
+Finished building target: Projet.elf
+ 
+arm-none-eabi-size  Projet.elf 
+arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
+   text	   data	    bss	    dec	    hex	filename
+  86996	    164	  71196	 158356	  26a94	Projet.elf
+Finished building: default.size.stdout
+ 
+Finished building: Projet.list
+ 
+12:14:53 **** Incremental Build of configuration Debug for project Projet ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
+../Core/Src/freertos.c: In function 'deplacement_fonction':
+../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
+  233 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c: In function 'RemplirImage':
+../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                                ^~~~
+../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                           ^~~~
+../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                      ^~~~
+../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
+  332 |         FRESULT val0,val1,val2,val3;
+      |                 ^~~~
+../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
+  324 |         char text[50]={};
+      |              ^~~~
+../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                                         ^
+../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
+  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+      |                             ^~~~~~~
+arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
+Finished building target: Projet.elf
+ 
+arm-none-eabi-size  Projet.elf 
+arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
+   text	   data	    bss	    dec	    hex	filename
+  86988	    164	  71196	 158348	  26a8c	Projet.elf
+Finished building: default.size.stdout
+ 
 Finished building: Projet.list
  
