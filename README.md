@@ -24,7 +24,7 @@ Pour cela on aura un travail de redimensionnement.
 * Fabriquer entête : fabrique l'entête du fichier bmp
 
 
-
+Lien du site: https://atlantis294.github.io/442-Projet/
 
 Jules FARNAULT
 23/04/2024
