@@ -1,32 +1,14 @@
-12:10:34 **** Incremental Build of configuration Debug for project Projet ****
+13:19:45 **** Incremental Build of configuration Debug for project Projet ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.c: In function 'deplacement_fonction':
-../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
-  233 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                                ^~~~
-../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                           ^~~~
-../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                      ^~~~
-../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                 ^~~~
-../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
-  324 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                                         ^
-../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                             ^~~~~~~
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/option/ccsbcs.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/option/ccsbcs.d" -MT"Middlewares/Third_Party/FatFs/src/option/ccsbcs.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/option/ccsbcs.o"
+../Middlewares/Third_Party/FatFs/src/option/ccsbcs.c:269:2: error: #error This file is not needed at current configuration. Remove from the project.
+  269 | #error This file is not needed at current configuration. Remove from the project.
+      |  ^~~~~
+make: *** [Middlewares/Third_Party/FatFs/src/option/subdir.mk:22: Middlewares/Third_Party/FatFs/src/option/ccsbcs.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+13:19:57 **** Incremental Build of configuration Debug for project Projet ****
+make -j16 all 
+arm-none-eabi-gcc "../Middlewares/Third_Party/FatFs/src/option/syscall.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/Third_Party/FatFs/src/option/syscall.d" -MT"Middlewares/Third_Party/FatFs/src/option/syscall.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/Third_Party/FatFs/src/option/syscall.o"
 arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
 Finished building target: Projet.elf
@@ -34,46 +16,39 @@ Finished building target: Projet.elf
 arm-none-eabi-size  Projet.elf 
 arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
    text	   data	    bss	    dec	    hex	filename
-  86996	    164	  71196	 158356	  26a94	Projet.elf
+  87308	    164	  75204	 162676	  27b74	Projet.elf
 Finished building: default.size.stdout
  
 Finished building: Projet.list
  
-12:10:41 **** Incremental Build of configuration Debug for project Projet ****
-make -j16 all 
-arm-none-eabi-size  Projet.elf 
-   text	   data	    bss	    dec	    hex	filename
-  86996	    164	  71196	 158356	  26a94	Projet.elf
-Finished building: default.size.stdout
- 
-12:12:20 **** Incremental Build of configuration Debug for project Projet ****
+13:30:51 **** Incremental Build of configuration Debug for project Projet ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
 ../Core/Src/freertos.c: In function 'deplacement_fonction':
-../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
-  233 |         char text[50]={};
+../Core/Src/freertos.c:242:14: warning: unused variable 'text' [-Wunused-variable]
+  242 |         char text[50]={};
       |              ^~~~
 ../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:333:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
-  333 |         FRESULT val0,val1,val2,val3;
+../Core/Src/freertos.c:367:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
+  367 |         FRESULT val0,val1,val2,val3;
       |                                ^~~~
-../Core/Src/freertos.c:333:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
-  333 |         FRESULT val0,val1,val2,val3;
+../Core/Src/freertos.c:367:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
+  367 |         FRESULT val0,val1,val2,val3;
       |                           ^~~~
-../Core/Src/freertos.c:333:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
-  333 |         FRESULT val0,val1,val2,val3;
+../Core/Src/freertos.c:367:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
+  367 |         FRESULT val0,val1,val2,val3;
       |                      ^~~~
-../Core/Src/freertos.c:333:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
-  333 |         FRESULT val0,val1,val2,val3;
+../Core/Src/freertos.c:367:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
+  367 |         FRESULT val0,val1,val2,val3;
       |                 ^~~~
-../Core/Src/freertos.c:325:14: warning: unused variable 'text' [-Wunused-variable]
-  325 |         char text[50]={};
+../Core/Src/freertos.c:359:14: warning: unused variable 'text' [-Wunused-variable]
+  359 |         char text[50]={};
       |              ^~~~
-../Core/Src/freertos.c:322:41: warning: unused variable 'h' [-Wunused-variable]
-  322 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+../Core/Src/freertos.c:356:41: warning: unused variable 'h' [-Wunused-variable]
+  356 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
       |                                         ^
-../Core/Src/freertos.c:322:29: warning: unused variable 'hauteur' [-Wunused-variable]
-  322 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
+../Core/Src/freertos.c:356:29: warning: unused variable 'hauteur' [-Wunused-variable]
+  356 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
       |                             ^~~~~~~
 arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
@@ -82,89 +57,7 @@ Finished building target: Projet.elf
 arm-none-eabi-size  Projet.elf 
 arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
    text	   data	    bss	    dec	    hex	filename
-  87012	    164	  71196	 158372	  26aa4	Projet.elf
-Finished building: default.size.stdout
- 
-Finished building: Projet.list
- 
-12:13:21 **** Incremental Build of configuration Debug for project Projet ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.c: In function 'deplacement_fonction':
-../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
-  233 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                                ^~~~
-../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                           ^~~~
-../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                      ^~~~
-../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                 ^~~~
-../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
-  324 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                                         ^
-../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                             ^~~~~~~
-arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
-Finished building target: Projet.elf
- 
-arm-none-eabi-size  Projet.elf 
-arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
-   text	   data	    bss	    dec	    hex	filename
-  86996	    164	  71196	 158356	  26a94	Projet.elf
-Finished building: default.size.stdout
- 
-Finished building: Projet.list
- 
-12:14:53 **** Incremental Build of configuration Debug for project Projet ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.c: In function 'deplacement_fonction':
-../Core/Src/freertos.c:233:14: warning: unused variable 'text' [-Wunused-variable]
-  233 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:332:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                                ^~~~
-../Core/Src/freertos.c:332:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                           ^~~~
-../Core/Src/freertos.c:332:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                      ^~~~
-../Core/Src/freertos.c:332:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
-  332 |         FRESULT val0,val1,val2,val3;
-      |                 ^~~~
-../Core/Src/freertos.c:324:14: warning: unused variable 'text' [-Wunused-variable]
-  324 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c:321:41: warning: unused variable 'h' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                                         ^
-../Core/Src/freertos.c:321:29: warning: unused variable 'hauteur' [-Wunused-variable]
-  321 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                             ^~~~~~~
-arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
-Finished building target: Projet.elf
- 
-arm-none-eabi-size  Projet.elf 
-arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
-   text	   data	    bss	    dec	    hex	filename
-  86988	    164	  71196	 158348	  26a8c	Projet.elf
+  87308	    164	  75204	 162676	  27b74	Projet.elf
 Finished building: default.size.stdout
  
 Finished building: Projet.list

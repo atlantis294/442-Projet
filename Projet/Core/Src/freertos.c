@@ -43,6 +43,13 @@ typedef struct
 	int32_t dy;
 }
 mouvement;
+
+typedef struct
+{
+	uint16_t x;
+	uint16_t y;
+}
+position;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -65,7 +72,9 @@ char *pDirectoryFiles[MAX_BMP_FILES];
 uint8_t ubNumberOfFiles = 0;
 uint32_t uwBmplen = 0;
 char image[32778];	//32778	130700
-BYTE data[960]; //480*2
+position toucher[1000]; //480*2
+uint8_t remplissage=0;
+int32_t x=0,y=0;
 
 uint8_t *uwInternelBuffer; //Buffer pour la mémoire SDRAM
 /* USER CODE END Variables */
@@ -211,7 +220,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(100);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -225,12 +234,14 @@ void StartDefaultTask(void const * argument)
 /* USER CODE END Header_deplacement_fonction */
 void deplacement_fonction(void const * argument)
 {
-	/* USER CODE BEGIN deplacement_fonction */
+  /* USER CODE BEGIN deplacement_fonction */
 	TS_StateTypeDef TS_State;
-	int32_t x=0,y=0,x0=0,y0=0;
+	int32_t x1=0,y1=0,x0=0,y0=0;
 	uint8_t verrouillage=0,touch=0;
 	mouvement deplacement;
 	char text[50]={};
+	position point;
+
 	/* Infinite loop */
 	for(;;)
 	{
@@ -238,10 +249,26 @@ void deplacement_fonction(void const * argument)
 		if(TS_State.touchDetected){
 			// sprintf(text,"x %d y %d            ",TS_State.touchX[0],TS_State.touchY[0]);
 			// BSP_LCD_DisplayStringAtLine(4, (uint8_t*) text);
-			if ((TS_State.touchX[0]<40)&& (TS_State.touchY[0]<40)){
-				verrouillage=!verrouillage;
+			if ((TS_State.touchX[0]<50)&& (TS_State.touchY[0]<50)){
+				if (verrouillage==1) verrouillage=0;
+				else verrouillage=1;
+				osDelay(500);
 			}
-			if (verrouillage==1) BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 4);
+			else if ((TS_State.touchX[0]<50)&& (TS_State.touchY[0]>250)){
+				remplissage=0;
+				deplacement.dx=0;
+				deplacement.dy=0;
+				xQueueSend(DeplacementQueueHandle, &deplacement, 0);
+				osDelay(300);
+			}
+			else if (verrouillage!=0){
+				BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 2);
+				point.x=TS_State.touchX[0]+x;
+				point.y=272+34-TS_State.touchY[0]+y;
+				toucher[remplissage]=point;
+				remplissage++;
+				if (remplissage==1000)remplissage=0;
+			} 
 			else{
 				if (touch==0){
 					x0=TS_State.touchX[0];
@@ -249,15 +276,15 @@ void deplacement_fonction(void const * argument)
 					touch=1;
 				}
 				else{
-					x=TS_State.touchX[0];
-					y=TS_State.touchY[0];
+					x1=TS_State.touchX[0];
+					y1=TS_State.touchY[0];
 				}
 			}
 		}
 		else if(touch!=0) {
 			touch=0;
-			deplacement.dx=x0-x;
-			deplacement.dy=y-y0;
+			deplacement.dx=x0-x1;
+			deplacement.dy=y1-y0;
 			//			sprintf(text,"dx %d dy %d            ",deplacement.dx,deplacement.dy);
 			//			BSP_LCD_DisplayStringAtLine(1, (uint8_t*) text);
 			//			sprintf(text,"f: x %d y %d            ",x,y);
@@ -266,10 +293,11 @@ void deplacement_fonction(void const * argument)
 			//			BSP_LCD_DisplayStringAtLine(3, (uint8_t*) text);
 			xQueueSend(DeplacementQueueHandle, &deplacement, 0);
 		}
-		if (verrouillage!=0)BSP_LCD_DisplayStringAtLine(1, (uint8_t*) "verrouillage");
+		//if (verrouillage!=0)BSP_LCD_DisplayStringAtLine(1, (uint8_t*) "verrouillage");
+		HAL_GPIO_WritePin(LED14_GPIO_Port, LED14_Pin,verrouillage);
 		osDelay(10);
 	}
-	/* USER CODE END deplacement_fonction */
+  /* USER CODE END deplacement_fonction */
 }
 
 /* USER CODE BEGIN Header_Display_fonction */
@@ -281,12 +309,13 @@ void deplacement_fonction(void const * argument)
 /* USER CODE END Header_Display_fonction */
 void Display_fonction(void const * argument)
 {
-	/* USER CODE BEGIN Display_fonction */
+  /* USER CODE BEGIN Display_fonction */
 	mouvement deplacement;
-	uint16_t hauteur=272;
+	uint16_t hauteur=272,index=0;
 	//char image[32778];	//32778
-	int32_t x=0,y=0;
+
 	char text[50]={};
+	position point;
 	FabriquerEntete(image);
 	for (int i=0;i<=8;i++){
 		RemplirImage(x,y+34*i,image);
@@ -308,10 +337,16 @@ void Display_fonction(void const * argument)
 			}
 			sprintf(text,"x=%4ld y=%4ld",x,y);
 			BSP_LCD_DisplayStringAtLine(0, (uint8_t*) text);
+			for (index=0;index<remplissage;index++){
+				point=toucher[index];
+				if ((x+5<point.x)&&(point.x<x+480-5) && (y+5<point.y)&&(point.y<y+306-5)){
+					BSP_LCD_FillCircle(point.x-x,306-point.y+y,2);
+				}
+			}
 		}
-		osDelay(100);
+		osDelay(200);
 	}
-	/* USER CODE END Display_fonction */
+  /* USER CODE END Display_fonction */
 }
 
 /* Private application code --------------------------------------------------*/
