@@ -916,3 +916,10 @@ org.eclipse.core.runtime.CoreException: Setup exceptions
 !MESSAGE OK
 !SUBENTRY 1 org.eclipse.core.resources 4 77 2024-04-23 15:33:11.206
 !MESSAGE C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet overlaps the location of another project: 'Projet'
+
+!ENTRY org.eclipse.core.resources 4 77 2024-04-23 15:51:28.742
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-04-23 15:51:28.742
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-04-23 15:51:28.742
+!MESSAGE C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet overlaps the location of another project: 'Projet'

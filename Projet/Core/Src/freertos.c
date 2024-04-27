@@ -69,6 +69,7 @@ uint8_t *uwInternelBuffer; //Buffer pour la mémoire SDRAM
 osThreadId defaultTaskHandle;
 osThreadId task_Affich_PicHandle;
 osThreadId tackdeplacementHandle;
+osThreadId DisplayHandle;
 osMessageQId DeplacementQueueHandle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -79,6 +80,7 @@ osMessageQId DeplacementQueueHandle;
 void StartDefaultTask(void const * argument);
 void Affichage_Pic(void const * argument);
 void deplacement_fonction(void const * argument);
+void Display_fonction(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -184,8 +186,12 @@ void MX_FREERTOS_Init(void) {
   task_Affich_PicHandle = osThreadCreate(osThread(task_Affich_Pic), NULL);
 
   /* definition and creation of tackdeplacement */
-  osThreadDef(tackdeplacement, deplacement_fonction, osPriorityIdle, 0, 128);
+  osThreadDef(tackdeplacement, deplacement_fonction, osPriorityRealtime, 0, 128);
   tackdeplacementHandle = osThreadCreate(osThread(tackdeplacement), NULL);
+
+  /* definition and creation of Display */
+  osThreadDef(Display, Display_fonction, osPriorityIdle, 0, 1024);
+  DisplayHandle = osThreadCreate(osThread(Display), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -292,11 +298,43 @@ void deplacement_fonction(void const * argument)
   /* USER CODE END deplacement_fonction */
 }
 
+/* USER CODE BEGIN Header_Display_fonction */
+/**
+* @brief Function implementing the Display thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Display_fonction */
+void Display_fonction(void const * argument)
+{
+	/* USER CODE BEGIN Display_fonction */
+	 mouvement deplacement;
+	 char image[32778];
+	 int16_t x=0,y=0;
+	 FabriquerEntete(image);
+	/* Infinite loop */
+	for (;;) {
+	 if (xQueueReceive(DeplacementQueueHandle, &deplacement, 0)) {
+	   HAL_GPIO_TogglePin(LED13_GPIO_Port, LED13_Pin);
+	   x+=deplacement.dx;
+	   y+=deplacement.dy;
+	   if (x<0) x=0;
+	   if (x>227) x=1227;//1707-480
+	   if (y<0) y=0;
+	   if (y>428) y=428;//700-272
+	   RemplirImage(x,y,image);
+	   BSP_LCD_DrawBitmap(0, 0, (uint8_t*) image);
+	 }
+		osDelay(100);
+	}
+	/* USER CODE END Display_fonction */
+}
+
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 
  void RemplirImage(uint16_t x, uint16_t y, char* image){
-   int16_t largeur=480,hauteur=272,h=700,l=1707,offset=138;
+   int16_t largeur=480,hauteur=272,h=700,l=1707,offset=137;
    uint16_t i,j,k,index=138;
    FIL file;
 //   uint8_t* uwInternelBuffer;
