@@ -25,10 +25,15 @@ footer {
     text-align: center;
     font-size: large;
     font-weight: bold;
+    padding-top: 100px;
+    padding-bottom: 200px;
 }
 
 .banniere {
-    padding: 450px;
+    padding-top: 400px;
+    padding-right: 500px;
+    padding-bottom: 500px;
+    padding-left: 500px;
     background-image: url('fond1.jpg');
     background-size: cover;
     background-position: center;
