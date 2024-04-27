@@ -1,0 +1,60 @@
+h1 {
+    color: white;
+    font-family: 'Ysabeau Office';
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    font-family: 'Ysabeau Office';
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    text-decoration: underline;
+}
+
+p {
+    color: black;
+    font-family: 'Ysabeau Office';
+    text-align: center;
+}
+
+footer {
+    color: black;
+    font-family: 'Ysabeau Office';
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.banniere {
+    padding: 450px;
+    background-image: url('fond1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex; /* Utilisation de flexbox pour aligner les colonnes */
+    justify-content: space-between; /* Aligner les colonnes avec un espace égal entre elles */
+    width: 100%; /* Prendre la largeur maximale disponible */
+}
+
+.column {
+    width: 30%; /* Largeur de chaque colonne */
+    padding: 10px; /* Espacement intérieur pour le contenu */
+    box-sizing: border-box; /* Inclure les bordures et le padding dans la largeur spécifiée */
+}
+
+/* Couleur des colonnes */
+.blue-column {
+    background-color: rgba(0, 0, 255, 0.329); /* Couleur bleue pour la colonne de gauche */
+}
+
+.gray-column {
+    background-color: lightgray; /* Couleur grise claire pour la colonne du milieu */
+}
+
+.red-column {
+    background-color: rgba(255, 0, 0, 0.5); /* Couleur rouge pour la colonne de droite */
+}

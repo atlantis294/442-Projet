@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>442 Projet: Carte embarqué</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="banniere">
+        <h1>442 Projet: Carte embarqué</h1>
+    </div>
+    
+    <p>Projet de carte embarqué dans le cadre du cours de 442 - Systèmes embarqués</p>
+
+    <h2>Objectif</h2>
+    <p>
+    <b>Mettre en place un système permettant de faire bouger une carte sur l'écran d'un STM32.</b></br>
+
+    On utilise une carte IGN au format BMP RGB565 de taille 1707x700.</br></p>
+    
+
+    <div style="text-align: center;">
+        <img src="mapENS.bmp" alt="Carte IGN de l'ENS" title="Carte IGN de l'ENS" width="800" >
+    </div>
+    <p>On affichera la carte sur un écran LCD de taille 480x272.</br>
+        Pour cela on aura un travail de redimensionnement. </p>
+    
+
+    <div class="container">
+        <div class="column blue-column">
+            <!-- Contenu de la première colonne -->
+            <h2>Taches</h2>
+            <p><ul>
+                <li>Déplacement : calcule le déplacement avec l'appui</li>
+                <li>Affichage : s'occupe d'afficher l'image s'il y a un mouvement qui est demandé.</li>
+            </ul></p>
+        </div>
+        <div class="column gray-column">
+            <!-- Contenu de la deuxième colonne -->
+            <h2>Queues</h2>
+            <p><ul>
+                <li>déplacement : transmet la structure mouvement (dx,dy) de la mesure du déplacement à l'affichage qui se charge de remplir l'image à afficher. </li>
+            </ul></p>
+        </div>
+        <div class="column red-column">
+            <!-- Contenu de la troisième colonne -->
+            <h2>Fonctions</h2>
+            <p><ul>
+                <li>Remplir image : rempli les pixels en reprenant l'image avec les bonnes coordonnées</li>
+                <li>Fabriquer entête : fabrique l'entête du fichier bmp</li>
+            </ul></p>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="https://github.com/atlantis294/442-Projet">Accédez au Github</a></br>
+    Jules FARNAULT
+    </footer>
+
+
+</body>
+</html>
