@@ -91,12 +91,14 @@ footer {
     text-align: center;
     float: left; /* Permet à la colonne d'être à gauche */
     width: 10%; /* 1/5 de la largeur de l'écran */
-    height: 120vh; /* 100% de la hauteur de la fenêtre */
+    height: 130vh; /* 100% de la hauteur de la fenêtre */
     background-color: #f0f0f0; /* Couleur de fond */
+    display: block;
 }
 
 /* Style du contenu principal */
 .content {
+    display: block;
     margin-left: 10%; /* Décalage pour laisser de l'espace à la colonne de gauche */
     height: 100vh; /* 100% de la hauteur de la fenêtre */
     background-color: #ffffff; /* Couleur de fond */
