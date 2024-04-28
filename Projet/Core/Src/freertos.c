@@ -72,8 +72,8 @@ char *pDirectoryFiles[MAX_BMP_FILES];
 uint8_t ubNumberOfFiles = 0;
 uint32_t uwBmplen = 0;
 char image[32778];	//32778	130700
-position toucher[1000]; //480*2
-uint8_t remplissage=0;
+position toucher[1000];
+uint8_t remplissage=0,indexremplissage=0;
 int32_t x=0,y=0;
 
 uint8_t *uwInternelBuffer; //Buffer pour la mémoire SDRAM
@@ -245,7 +245,7 @@ void deplacement_function(void const * argument)
 	int32_t x1=0,y1=0,x0=0,y0=0;
 	uint8_t verrouillage=0,touch=0;
 	mouvement deplacement;
-	char text[50]={};
+//	char text[50]={};
 	position point;
 
 	/* Infinite loop */
@@ -262,6 +262,7 @@ void deplacement_function(void const * argument)
 			}
 			else if ((TS_State.touchX[0]<50)&& (TS_State.touchY[0]>250)){
 				remplissage=0;
+				indexremplissage=0;
 				deplacement.dx=0;
 				deplacement.dy=0;
 				xQueueSend(DeplacementQueueHandle, &deplacement, 0);
@@ -271,9 +272,10 @@ void deplacement_function(void const * argument)
 				BSP_LCD_FillCircle(TS_State.touchX[0], TS_State.touchY[0], 2);
 				point.x=TS_State.touchX[0]+x;
 				point.y=272+34-TS_State.touchY[0]+y;
-				toucher[remplissage]=point;
-				remplissage++;
-				if (remplissage==1000)remplissage=0;
+				toucher[indexremplissage]=point;
+				indexremplissage++;
+				if (indexremplissage==1000)indexremplissage=0;
+				if (indexremplissage>remplissage) remplissage=indexremplissage;
 			}
 			else{
 				if (touch==0){
@@ -373,7 +375,7 @@ void joystick_function(void const * argument)
 	sConfig.Channel = ADC_CHANNEL_0;
 	HAL_ADC_ConfigChannel(&hadc1, &sConfig);
 	int32_t joystick_h, joystick_v;
-	char text[50]={};
+//	char text[50]={};
 	mouvement deplacement;
 	/* Infinite loop */
 	for(;;)
@@ -499,6 +501,5 @@ void FabriquerEntete(char* image){
 	image[25]=0x00;
 	//f_close(&file);
 }
-
 /* USER CODE END Application */
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>442 Projet: Carte embarquée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="icon.ico" />
+</head>
+<body>
+    <div class="banniere">
+        <h1>442 Projet: Carte embarquée</h1>
+    </div>
+
+    <div class="sidebar">
+        <!-- Contenu de la colonne de gauche -->
+        <a class="custom-link" href="index.html"> Home </a></br>
+        <a class="custom-link" href="task.html"> Taches </a></br>
+        <a class="custom-link" href="function.html"> Fonctions </a></br>
+        <a class="custom-link" href="queues.html"> Queues </a></br>
+        <a class="custom-link" href="https://github.com/atlantis294/442-Projet">Github</a></br>
+        <a class="custom-link" href="about.html"> About </a>
+    </div>
+    <div class="content">
+        <h2>Taches</h2></br>
+        <p>
+        Nous allons mettre en place trois taches.
+        </p>
+        <h3>Déplacement</h3></br>
+        <p>Cette tache à pour but de gérer les appuis sur l'écran. Elle calcule le déplacement et envoie le mouvement dans la queue de déplacement.</br>
+
+        Elle permet aussi de verrouiller l'écran pour pouvoir dessiner dessus. Elle s'occupera de sauvegarder le ou les dessins. Pour éviter de saturer la mémoire, on limitera la sauvegarde à 1000 points.</p>
+
+        <h3>Joystick</h3></br>
+
+        <p>Cette tache s'occupe de regarder si le joystick est utilisé. Si c'est le cas, elle envoie un message dans la queue de déplacement pour faire bouger l'image.</br> Comme la mesure du joystick est bruité on ajoutera une zone nul autour de l'angle 0</p>
+
+        <h3>Affichage</h3></br>
+        <p>Cette tache s'occupe d'afficher l'image sur l'écran. Elle regarde si un mouvement est demandé dans la queue de déplacement et si c'est le cas, elle utilise la fonction RemplirImage pour refaire les fichiers BMP à afficher.</br>
+        Il faudra penser à mettre des saturations pour ne pas dépasser les limites de l'écran.</br>
+        Enfin, lorsqu'il y a un mouvement, elle devra se charger de remettre le dessin qui est sauvegardé.
+        </p>
+        
+    <footer>
+        <a href="https://github.com/atlantis294/442-Projet">Accédez au Github</a></br>
+    Jules FARNAULT
+    </footer>
+
+</div>
+</body>
+</html>

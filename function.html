@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>442 Projet: Carte embarquée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="icon.ico" />
+</head>
+<body>
+    <div class="banniere">
+        <h1>442 Projet: Carte embarquée</h1>
+    </div>
+
+    <div class="sidebar">
+        <!-- Contenu de la colonne de gauche -->
+        <a class="custom-link" href="index.html"> Home </a></br>
+        <a class="custom-link" href="task.html"> Taches </a></br>
+        <a class="custom-link" href="function.html"> Fonctions </a></br>
+        <a class="custom-link" href="queues.html"> Queues </a></br>
+        <a class="custom-link" href="https://github.com/atlantis294/442-Projet">Github</a></br>
+        <a class="custom-link" href="about.html"> About </a>
+    </div>
+    <div class="content">
+        <h2>Fonctions</h2></br>
+            <p>Nous allons mettre en place plusieurs fonctions permettant de rendre plus lisible le code.</br>
+            Pour afficher l'image sur l'écran, nous allons afficher 8 images de taille 34 lignes par 480 colonnes qui permet d'avoir des tableaux d'images de taille raisonnable.
+            </p>
+    
+    <h3>FabriquerEntete</h3></br>
+    <p>Cette fonction à pour but de créer l'entête des fichiers BMP que l'on affichera. On utilise l'entête du fichier dans la carte SD et on modifie juste les valeurs du nombre de pixels en longueur et en largeur.</p>
+
+    <h3>RemplirImage</h3></br>
+    <p>Cette fonction permet de remplir une image de taille 34x480 avec les pixels de l'image de la carte IGN. On utilise la fonction <b>f_read</b> et <b>f_lseek</b> pour récupérer les pixels de l'image de la carte IGN dans la carte SD.</p>
+        
+    <footer>
+        <a href="https://github.com/atlantis294/442-Projet">Accédez au Github</a></br>
+    Jules FARNAULT
+    </footer>
+
+</div>
+</body>
+</html>

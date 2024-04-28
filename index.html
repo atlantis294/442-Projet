@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>442 Projet: Carte embarqué</title>
+    <title>442 Projet: Carte embarquée</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Office:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
@@ -12,12 +12,25 @@
 </head>
 <body>
     <div class="banniere">
-        <h1>442 Projet: Carte embarqué</h1>
+        <h1>442 Projet: Carte embarquée</h1>
     </div>
-    
-    <p>Projet de carte embarqué dans le cadre du cours de 442 - Systèmes embarqués</p>
 
-    <h2>Objectif</h2>
+    <div class="sidebar">
+        <!-- Contenu de la colonne de gauche -->
+        <a class="custom-link" href="index.html"> Home </a></br>
+        <a class="custom-link" href="task.html"> Taches </a></br>
+        <a class="custom-link" href="function.html"> Fonctions </a></br>
+        <a class="custom-link" href="queues.html"> Queues </a></br>
+        <a class="custom-link" href="https://github.com/atlantis294/442-Projet">Github</a></br>
+        <a class="custom-link" href="about.html"> About </a>
+    </div>
+    <div class="content">
+        <!-- Contenu principal de votre site -->
+    
+
+    <p>Projet de carte embarqué dans le cadre du cours de 442 - Systèmes embarqués</p></br>
+
+    <h2>Objectif</h2></br>
     <p>
     <b>Mettre en place un système permettant de faire bouger une carte sur l'écran d'un STM32.</b></br>
 
@@ -29,6 +42,8 @@
     <p style="margin-bottom: 100px;">On affichera la carte sur un écran LCD de taille 480x272.</br>
         Pour cela on aura un travail de redimensionnement. </p>
     
+    
+
 
     <div class="container">
         <div class="column blue-column">
@@ -37,6 +52,7 @@
             <p><ul>
                 <li>Déplacement : calcule le déplacement avec l'appui</li>
                 <li>Affichage : s'occupe d'afficher l'image s'il y a un mouvement qui est demandé.</li>
+                <li>Joystick : regarde s'il y a un mouvement qui est demandé par le joystick</li>
             </ul></p>
         </div>
         <div class="column gray-column">
@@ -55,12 +71,13 @@
             </ul></p>
         </div>
     </div>
+
     
     <footer>
-        <a href="https://github.com/atlantis294/442-Projet">Accédez au Github</a></br>
+        <a class="custom-link" href="https://github.com/atlantis294/442-Projet">Accédez au Github</a></br>
     Jules FARNAULT
     </footer>
 
-
+</div>
 </body>
 </html>

@@ -11,6 +11,18 @@ h2 {
     text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     text-align: center;
     text-decoration: underline;
+    font-size: 40px;
+}
+
+h3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: black;
+    font-family: 'Ysabeau Office';
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    text-decoration: underline;
+    font-size: 20px;
 }
 
 p {
@@ -26,7 +38,7 @@ footer {
     font-size: large;
     font-weight: bold;
     padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 }
 
 .banniere {
@@ -47,7 +59,7 @@ footer {
 
 .column {
     width: 30%; /* Largeur de chaque colonne */
-    padding: 10px; /* Espacement intérieur pour le contenu */
+    padding: 25px; /* Espacement intérieur pour le contenu */
     box-sizing: border-box; /* Inclure les bordures et le padding dans la largeur spécifiée */
 }
 
@@ -62,4 +74,36 @@ footer {
 
 .red-column {
     background-color: rgba(255, 0, 0, 0.5); /* Couleur rouge pour la colonne de droite */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style de la colonne de gauche */
+.sidebar {
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    font-family: 'Ysabeau Office';
+    text-align: center;
+    float: left; /* Permet à la colonne d'être à gauche */
+    width: 10%; /* 1/5 de la largeur de l'écran */
+    height: 120vh; /* 100% de la hauteur de la fenêtre */
+    background-color: #f0f0f0; /* Couleur de fond */
+}
+
+/* Style du contenu principal */
+.content {
+    margin-left: 10%; /* Décalage pour laisser de l'espace à la colonne de gauche */
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    background-color: #ffffff; /* Couleur de fond */
+}
+
+.custom-link {
+    color: black; /* Définit la couleur du lien hypertexte */
+    /* Autres styles que vous souhaitez appliquer aux liens personnalisés */
+    text-decoration: none; /* Optionnel : pour enlever le soulignement */
 }

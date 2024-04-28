@@ -1,63 +1,10 @@
-17:11:01 **** Incremental Build of configuration Debug for project Projet ****
+07:07:47 **** Incremental Build of configuration Debug for project Projet ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/freertos.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/freertos.d" -MT"Core/Src/freertos.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/freertos.o"
-../Core/Src/freertos.c: In function 'deplacement_function':
-../Core/Src/freertos.c:248:14: warning: unused variable 'text' [-Wunused-variable]
-  248 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c: In function 'joystick_function':
-../Core/Src/freertos.c:394:22: warning: implicit declaration of function 'abs' [-Wimplicit-function-declaration]
-  394 |                 if ((abs(deplacement.dx)>100)||(abs(deplacement.dy)>100)){
-      |                      ^~~
-../Core/Src/freertos.c:35:1: note: include '<stdlib.h>' or provide a declaration of 'abs'
-   34 | #include "adc.h"
-  +++ |+#include <stdlib.h>
-   35 | 
-../Core/Src/freertos.c:394:37: warning: 'abs' argument 1 promotes to 'int32_t' {aka 'long int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
-  394 |                 if ((abs(deplacement.dx)>100)||(abs(deplacement.dy)>100)){
-      |                          ~~~~~~~~~~~^~~
-<built-in>: note: built-in 'abs' declared here
-../Core/Src/freertos.c:394:64: warning: 'abs' argument 1 promotes to 'int32_t' {aka 'long int'} where 'int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
-  394 |                 if ((abs(deplacement.dx)>100)||(abs(deplacement.dy)>100)){
-      |                                                     ~~~~~~~~~~~^~~
-<built-in>: note: built-in 'abs' declared here
-../Core/Src/freertos.c:376:14: warning: unused variable 'text' [-Wunused-variable]
-  376 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c: In function 'RemplirImage':
-../Core/Src/freertos.c:421:32: warning: variable 'val3' set but not used [-Wunused-but-set-variable]
-  421 |         FRESULT val0,val1,val2,val3;
-      |                                ^~~~
-../Core/Src/freertos.c:421:27: warning: variable 'val2' set but not used [-Wunused-but-set-variable]
-  421 |         FRESULT val0,val1,val2,val3;
-      |                           ^~~~
-../Core/Src/freertos.c:421:22: warning: variable 'val1' set but not used [-Wunused-but-set-variable]
-  421 |         FRESULT val0,val1,val2,val3;
-      |                      ^~~~
-../Core/Src/freertos.c:421:17: warning: variable 'val0' set but not used [-Wunused-but-set-variable]
-  421 |         FRESULT val0,val1,val2,val3;
-      |                 ^~~~
-../Core/Src/freertos.c:413:14: warning: unused variable 'text' [-Wunused-variable]
-  413 |         char text[50]={};
-      |              ^~~~
-../Core/Src/freertos.c:410:41: warning: unused variable 'h' [-Wunused-variable]
-  410 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                                         ^
-../Core/Src/freertos.c:410:29: warning: unused variable 'hauteur' [-Wunused-variable]
-  410 |         int16_t largeur=480,hauteur=272,h=700,l=1707,offset=image[10];
-      |                             ^~~~~~~
-arm-none-eabi-gcc -o "Projet.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\jfarn\Documents\ENS\M1\442\Projet\Projet\STM32F746NGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Projet.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Projet.elf has a LOAD segment with RWX permissions
-Finished building target: Projet.elf
- 
 arm-none-eabi-size  Projet.elf 
-arm-none-eabi-objdump -h -S Projet.elf  > "Projet.list"
    text	   data	    bss	    dec	    hex	filename
-  88328	    164	  75212	 163704	  27f78	Projet.elf
+  88296	    164	  75212	 163672	  27f58	Projet.elf
 Finished building: default.size.stdout
  
-Finished building: Projet.list
- 
 
-17:11:02 Build Finished. 0 errors, 13 warnings. (took 1s.214ms)
+07:07:47 Build Finished. 0 errors, 0 warnings. (took 347ms)
 
